@@ -8,7 +8,7 @@ namespace GameController
     internal class PauseMenuState : IState
     {
         
-        private GameObject pauseMenuCanvas;
+        private readonly GameObject pauseMenuCanvas;
 
         public PauseMenuState(GameObject pauseMenuCanvas)
         {

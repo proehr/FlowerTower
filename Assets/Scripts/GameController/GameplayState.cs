@@ -7,7 +7,7 @@ namespace GameController
 {
     internal class GameplayState : IState
     {
-        private GameplayController.GameplayController gameplayController;
+        private readonly GameplayController.GameplayController gameplayController;
 
         public GameplayState(GameplayController.GameplayController gameplayController)
         {

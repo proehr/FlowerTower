@@ -9,7 +9,7 @@ namespace GameController
     internal class MainMenuState : IState
     {
         
-        private GameObject mainMenuCanvas;
+        private readonly GameObject mainMenuCanvas;
 
         public MainMenuState(GameObject mainMenuCanvas)
         {
