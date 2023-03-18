@@ -8,27 +8,20 @@ namespace GameplayController
     internal class GameplayController : StateMachine.StateMachine
     {
         // Incoming game events
-        [SerializeField] private GameEvent onLevelSelected;
+        [SerializeField] private GameEvent onNextRound;
         [SerializeField] private GameEvent onFinishMap;
-        [SerializeField] private GameEvent onCloseResultScreen;
-        [SerializeField] private GameEvent onSelectReward;
-        
+
         // Features
         [SerializeField] private CurrentLevel_SO currentLevel;
         [SerializeField] private GameObject levelSlot;
         [SerializeField] private GameObject resultScreen;
-        [SerializeField] private GameObject rewardScreen;
-        [SerializeField] private GameObject worldOverviewSlot;
-        
 
         private void Awake()
         {
-            onLevelSelected.RegisterListener(StartTDGameplay);
+            onNextRound.RegisterListener(StartTDGameplay);
             onFinishMap.RegisterListener(ShowResultScreen);
-            onCloseResultScreen.RegisterListener(ShowRewardScreen);
-            onSelectReward.RegisterListener(ShowWorldOverview);
 
-            InitializeStateMachine(new WorldOverviewState(worldOverviewSlot));
+            InitializeStateMachine(new TDGameplayState(levelSlot, currentLevel));
         }
         private void StartTDGameplay()
         {
@@ -40,15 +33,5 @@ namespace GameplayController
             TransitionTo(new RoundResultScreenState(resultScreen));
         }
         
-        private void ShowRewardScreen()
-        {
-            TransitionTo(new RewardScreenState(rewardScreen));
-        }
-
-
-        private void ShowWorldOverview()
-        {
-            TransitionTo(new WorldOverviewState(worldOverviewSlot));
-        }
     }
 }

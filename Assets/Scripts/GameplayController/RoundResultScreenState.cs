@@ -27,7 +27,7 @@ namespace GameplayController
             resultScreen.SetActive(false);
         }
 
-        private readonly List<Type> nextStates = new() {typeof(RewardScreenState)};
+        private readonly List<Type> nextStates = new() {typeof(TDGameplayState)};
 
 
         public bool HasNextState(IState nextState)
