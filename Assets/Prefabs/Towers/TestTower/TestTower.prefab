@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4983685123689194396}
   - component: {fileID: 5356785618821143047}
-  - component: {fileID: 196074170100491235}
   - component: {fileID: 4522913124045806987}
-  - component: {fileID: -1501073675768406895}
   m_Layer: 0
   m_Name: TestTower
   m_TagString: Untagged
@@ -51,33 +49,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &196074170100491235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7856349674216977482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ef49f7917004103834ac7530eb81c64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  configuration:
-    maxHealth: 10
-    startingHealth: 10
-    alignment:
-      unityObjectReference: {fileID: 11400000, guid: ae233a92241888f47967d7b0c4df4e80, type: 2}
-  targetTransform: {fileID: 0}
-  levels:
-  - {fileID: 7576561473283482459, guid: 05586a14c18328c48bdcdb4c975df223, type: 3}
-  towerName: Test Tower
-  dimensions:
-    x: 1
-    y: 1
-  enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 2147483647
 --- !u!65 &4522913124045806987
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91,17 +62,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &-1501073675768406895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7856349674216977482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cf1cc7cb7e6b49f893f609dd57fce01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageableBehaviour: {fileID: 0}
-  damageScale: 1
