@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5618008055442632016}
   - component: {fileID: 3121648707074408938}
   - component: {fileID: 5682858173432164224}
-  - component: {fileID: 7576561473283482459}
   m_Layer: 0
   m_Name: TestTower1
   m_TagString: Untagged
@@ -99,18 +98,3 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7576561473283482459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2314347880141867898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d8e55681884ffb9fb6ed0b6f18f0bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerGhostPrefab: {fileID: 1563159116080069756, guid: de991062bfbb8a54c9078383bca832fb, type: 3}
-  buildEffectPrefab: {fileID: 0}
-  levelData: {fileID: 11400000, guid: 4cdb69c58d954054991e7bb638b605a8, type: 2}
