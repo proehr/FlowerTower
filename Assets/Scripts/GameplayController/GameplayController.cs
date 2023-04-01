@@ -1,5 +1,6 @@
 ﻿using DataStructures.Events;
 using GameController;
+using LevelSelection;
 using UnityEngine;
 
 namespace GameplayController
@@ -7,42 +8,30 @@ namespace GameplayController
     internal class GameplayController : StateMachine.StateMachine
     {
         // Incoming game events
-        [SerializeField] private GameEvent onSelectMap;
+        [SerializeField] private GameEvent onNextRound;
         [SerializeField] private GameEvent onFinishMap;
-        [SerializeField] private GameEvent onCloseResultScreen;
-        [SerializeField] private GameEvent onSelectReward;
-        
+
         // Features
-        
+        [SerializeField] private CurrentLevel_SO currentLevel;
+        [SerializeField] private GameObject levelSlot;
+        [SerializeField] private GameObject resultScreen;
 
         private void Awake()
         {
-            onSelectMap.RegisterListener(StartTDGameplay);
+            onNextRound.RegisterListener(StartTDGameplay);
             onFinishMap.RegisterListener(ShowResultScreen);
-            onCloseResultScreen.RegisterListener(ShowRewardScreen);
-            onSelectReward.RegisterListener(ShowWorldOverview);
 
-            InitializeStateMachine(new WorldOverviewState());
+            InitializeStateMachine(new TDGameplayState(levelSlot, currentLevel));
         }
         private void StartTDGameplay()
         {
-            TransitionTo(new TDGameplayState());
+            TransitionTo(new TDGameplayState(levelSlot, currentLevel));
         }
 
         private void ShowResultScreen()
         {
-            TransitionTo(new RoundResultScreenState());
+            TransitionTo(new RoundResultScreenState(resultScreen));
         }
         
-        private void ShowRewardScreen()
-        {
-            TransitionTo(new RewardScreenState());
-        }
-
-
-        private void ShowWorldOverview()
-        {
-            TransitionTo(new WorldOverviewState());
-        }
     }
 }
