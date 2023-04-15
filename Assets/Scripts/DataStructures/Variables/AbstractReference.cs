@@ -1,17 +1,37 @@
 ﻿using System;
+using UnityEngine;
 
-namespace DataStructures.Variables
+namespace General_Logic.Variables
 {
     [Serializable]
-    public class AbstractReference<T>
+    public abstract class AbstractReference<T>
     {
-        public bool UseConstant = true;
-        public T ConstantValue;
-        public AbstractVariable<T> Variable;
+        [SerializeField] private bool useOverride;
+        [SerializeField] private T overrideValue;
+        [SerializeField] private AbstractVariable<T> variable;
 
-        public T Value
+        protected AbstractReference(T value)
         {
-            get { return UseConstant ? ConstantValue : Variable.value; }
+            useOverride = true;
+            overrideValue = value;
+        }
+
+        public void SetOverride(T value)
+        {
+            useOverride = true;
+            overrideValue = value;
+        }
+
+        public void ResetOverride()
+        {
+            useOverride = false;
+        }
+        
+        protected T value => useOverride ? overrideValue : variable.Get();
+
+        public static implicit operator T(AbstractReference<T> reference)
+        {
+            return reference.value;
         }
     }
 }

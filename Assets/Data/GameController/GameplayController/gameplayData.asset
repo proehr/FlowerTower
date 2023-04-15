@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed3b4d26e5b4e5a9273e254ab4696c1, type: 3}
   m_Name: gameplayData
   m_EditorClassIdentifier: 
+  resultType: 1
