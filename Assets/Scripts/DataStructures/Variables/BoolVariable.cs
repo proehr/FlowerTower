@@ -1,12 +1,29 @@
-﻿using System;
+using System;
 using UnityEngine;
 
-namespace DataStructures.Variables
+namespace General_Logic.Variables
 {
-    [Serializable]
-    [CreateAssetMenu(fileName = "BoolVariable", menuName = "Data/Variables/BoolVariable", order = 1)]
+    [CreateAssetMenu(fileName = "NewBoolVariable", menuName = "Data/Variables/BoolVariable")]
     public class BoolVariable : AbstractVariable<bool>
     {
+        public void Toggle()
+        {
+            Set(!runtimeValue);
+        }
         
+        public void SetTrue(Action action)
+        {
+            Set(true);
+        }
+
+        public void SetFalse()
+        {
+            Set(false);
+        }
+
+        public bool Not()
+        {
+            return !Get();
+        }
     }
 }

@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using StateMachine;
+using TowerDefense.GameplayController;
 using UnityEngine;
 
 namespace GameController
 {
     internal class GameplayState : IState
     {
-        private readonly GameplayController.GameplayController gameplayController;
+        private readonly GameplayController gameplayController;
 
-        public GameplayState(GameplayController.GameplayController gameplayController)
+        public GameplayState(GameplayController gameplayController)
         {
             this.gameplayController = gameplayController;
         }

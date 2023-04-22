@@ -1,4 +1,5 @@
 using DataStructures.Events;
+using TowerDefense.GameplayController;
 using UnityEngine;
 
 namespace GameController
@@ -15,7 +16,7 @@ namespace GameController
         // Features
         [SerializeField] private GameObject mainMenuCanvas;
         [SerializeField] private GameObject pauseMenuCanvas;
-        [SerializeField] private GameplayController.GameplayController gameplayController;
+        [SerializeField] private GameplayController gameplayController;
 
         private void Awake()
         {

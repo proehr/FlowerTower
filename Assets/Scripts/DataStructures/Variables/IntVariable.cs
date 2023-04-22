@@ -1,12 +1,20 @@
-﻿using System;
 using UnityEngine;
 
-namespace DataStructures.Variables
+namespace General_Logic.Variables
 {
-    [Serializable]
-    [CreateAssetMenu(fileName = "IntVariable", menuName = "Data/Variables/IntVariable", order = 0)]
+    [CreateAssetMenu(fileName = "NewIntVariable", menuName = "Data/Variables/IntVariable")]
     public class IntVariable : AbstractVariable<int>
     {
-        
+        public void Add(int value)
+        {
+            runtimeValue += value;
+            if(onValueChanged != null) onValueChanged.Raise();
+        }
+
+        public void Add(IntVariable value)
+        {
+            runtimeValue += value.runtimeValue;
+            if(onValueChanged != null) onValueChanged.Raise();
+        }
     }
 }

@@ -27,7 +27,9 @@ namespace GameController
             pauseMenuCanvas.SetActive(false);
         }
 
-        private readonly List<Type> nextStates = new() {typeof(MainMenuState), typeof(GameplayState)};
+        private readonly List<Type> nextStates = new()
+            {typeof(MainMenuState), typeof(ExitingGameState), typeof(GameplayState)};
+
         public bool HasNextState(IState nextState)
         {
             return nextStates.Contains(nextState.GetType());
