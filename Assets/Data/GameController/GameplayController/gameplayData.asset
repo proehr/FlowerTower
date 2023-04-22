@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed3b4d26e5b4e5a9273e254ab4696c1, type: 3}
   m_Name: gameplayData
   m_EditorClassIdentifier: 
+  currentLevelIndex: 0
+  levelPrefabs:
+  - {fileID: 7437037279218379162, guid: 4917175a0eabf7747928683953620afb, type: 3}
   resultType: 1
+  onNextRound: {fileID: 11400000, guid: 781724212727f9540a88e2d7380194ca, type: 2}
+  onFinishMap: {fileID: 11400000, guid: 8fb5d3f3d78c96e4ca79245d7db321fc, type: 2}

@@ -32,7 +32,7 @@ namespace TowerDefense.GameplayController
         public void Exit()
         {
             Debug.Log("Exit " + this.GetType().FullName);
-            Object.Destroy(activeLevel);
+            Object.Destroy(activeLevel.gameObject);
         }
 
         private readonly List<Type> nextStates = new() {typeof(RoundResultScreenState), typeof(PauseMenuState)};

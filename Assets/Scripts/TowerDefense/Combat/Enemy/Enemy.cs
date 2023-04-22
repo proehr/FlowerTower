@@ -8,7 +8,7 @@ namespace TowerDefense.Combat.Enemy
     {
 
         [SerializeField] protected EnemyData enemyData;
-        [SerializeField] protected TowerBehaviour targetTower;
+        [SerializeField] protected Combatant targetCombatant;
         [SerializeField] private float minDistanceFromTower;
 
         // Start is called before the first frame update
@@ -16,7 +16,7 @@ namespace TowerDefense.Combat.Enemy
         {
             currentHealth = enemyData.maxHealth;
             attackCooldown = 1f / enemyData.attackSpeed;
-            targetTower = null;
+            targetCombatant = null;
         }
 
 
@@ -36,11 +36,11 @@ namespace TowerDefense.Combat.Enemy
 
         private void HandleCombat()
         {
-            if (targetTower)
+            if (targetCombatant)
             {
                 if (attackCooldown <= 0f)
                 {
-                    Attack(targetTower);
+                    Attack(targetCombatant);
                 }
                 else
                 {
@@ -55,9 +55,9 @@ namespace TowerDefense.Combat.Enemy
             attackCooldown += 1 / enemyData.attackSpeed;
         }
 
-        public virtual void BeginCombat(TowerBehaviour tower)
+        public virtual void BeginCombat(Combatant tower)
         {
-            targetTower = tower;
+            targetCombatant = tower;
             float distance = Mathf.Abs((transform.position - tower.transform.position).magnitude);
 
             SetTarget(Vector3.Lerp(
@@ -71,8 +71,8 @@ namespace TowerDefense.Combat.Enemy
             if (killer as TowerBehaviour)
             {
                 ((TowerBehaviour) killer).RemoveEnemy(this);
-                base.HandleDeath(killer);
             }
+            base.HandleDeath(killer);
         }
     }
 }

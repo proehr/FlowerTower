@@ -111,7 +111,8 @@ namespace TowerDefense.Level
 		protected virtual void SpawnEnemy(EnemyConfiguration enemyConfig, Node node)
 		{
 			Vector3 spawnPosition = node.GetRandomPointInNodeArea();
-			Enemy enemy = Instantiate(enemyConfig.enemyPrefab, node.transform.position, Quaternion.identity);
+			// TODO: place enemies into a container
+			Enemy enemy = Instantiate(enemyConfig.enemyPrefab, node.transform.position, Quaternion.identity, transform);
 			enemy.SetNode(node);
 		}
 
