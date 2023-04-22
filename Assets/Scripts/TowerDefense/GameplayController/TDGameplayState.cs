@@ -13,7 +13,7 @@ namespace TowerDefense.GameplayController
         private readonly GameplayData_SO gameplayData;
         private readonly GameObject levelSlot;
 
-        private Level activeLevel;
+        private LevelSelection.Level activeLevel;
 
         public TDGameplayState(GameplayData_SO gameplayData, GameObject levelSlot)
         {
@@ -25,7 +25,7 @@ namespace TowerDefense.GameplayController
         public void Enter()
         {
             Debug.Log("Enter " + this.GetType().FullName);
-            Level gameplayDataLevelPrefab = gameplayData.LevelPrefabs[gameplayData.CurrentLevelIndex];
+            LevelSelection.Level gameplayDataLevelPrefab = gameplayData.LevelPrefabs[gameplayData.CurrentLevelIndex];
             activeLevel = Object.Instantiate(gameplayDataLevelPrefab, levelSlot.transform);
         }
 

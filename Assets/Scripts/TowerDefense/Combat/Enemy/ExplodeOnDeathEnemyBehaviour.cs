@@ -35,7 +35,7 @@ namespace TowerDefense.Combat.Enemy
 
         private void ExplodeOnDeath(Combatant killer)
         {
-            killer.ReceiveAttack(this, new DirectDamageEffect(explodeOnDeathDamage));
+            killer?.ReceiveAttack(this, new DirectDamageEffect(explodeOnDeathDamage));
         }
     }
 }

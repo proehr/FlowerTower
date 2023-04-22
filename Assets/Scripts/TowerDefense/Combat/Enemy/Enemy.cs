@@ -8,10 +8,7 @@ namespace TowerDefense.Combat.Enemy
     {
 
         [SerializeField] protected EnemyData enemyData;
-        
-        [SerializeField] protected Vector3 flowerTower;
         [SerializeField] protected TowerBehaviour targetTower;
-
         [SerializeField] private float minDistanceFromTower;
 
         // Start is called before the first frame update
@@ -49,11 +46,6 @@ namespace TowerDefense.Combat.Enemy
                 {
                     attackCooldown -= Time.deltaTime;
                 }
-            }
-            if (Mathf.Abs((transform.position - flowerTower).magnitude) <= movementData.movementSpeed * Time.deltaTime)
-            {
-                // TODO: attack flower
-                HandleDeath(null);
             }
         }
 
