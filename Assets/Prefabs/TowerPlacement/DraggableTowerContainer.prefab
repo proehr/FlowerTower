@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6201776767571849550}
   - component: {fileID: 6201776767571849551}
   m_Layer: 8
-  m_Name: DraggableCube
+  m_Name: DraggableTowerContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

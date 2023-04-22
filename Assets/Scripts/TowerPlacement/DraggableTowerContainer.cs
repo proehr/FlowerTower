@@ -7,8 +7,9 @@ using HexGrid;
 
 namespace TowerPlacement
 {
-    public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IDroppable, IEndDragHandler
+    public class DraggableTowerContainer : MonoBehaviour, IBeginDragHandler, IDragHandler, IDroppable, IEndDragHandler
     {
+        [SerializeField] private GameObject onDropInstantiationTower;
         [SerializeField] private Camera uiCamera;
         [SerializeField] private Camera sceneCamera;
         [SerializeField] private LayerMask raycastPlacementLayer;
@@ -56,16 +57,17 @@ namespace TowerPlacement
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            BaseDroppable.HideDroppablesHighlighting();
+            
             if (!_isSuccessfulDrop)
             {
                 AttachToUI();
             }
             else
             {
-                //TODO: code for successful drop comes here
+                Instantiate(onDropInstantiationTower, transform.position, Quaternion.identity);
+                Destroy(gameObject);
             }
-
-            BaseDroppable.HideDroppablesHighlighting();
         }
 
         private void UpdateIsPointerOverUI()

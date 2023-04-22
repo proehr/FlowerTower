@@ -1377,6 +1377,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2852562676787231550, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
+      propertyPath: m_Name
+      value: DraggableTowerContainer
+      objectReference: {fileID: 0}
     - target: {fileID: 2852562678275416984, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1477,6 +1481,10 @@ PrefabInstance:
       propertyPath: sceneCamera
       value: 
       objectReference: {fileID: 1466043390}
+    - target: {fileID: 2943625263446712890, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
+      propertyPath: onDropInstantiationTower
+      value: 
+      objectReference: {fileID: 8305567716787900808, guid: 44b95e5a969f2354bbf903cffd5552be, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
 --- !u!1001 &3927425827220347417
