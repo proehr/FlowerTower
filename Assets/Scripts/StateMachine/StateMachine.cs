@@ -18,7 +18,9 @@ namespace StateMachine
         {
             if (!currentStateSO.currentState.HasNextState(targetState))
             {
-                throw new InvalidOperationException("Invalid state transition");
+                throw new InvalidOperationException("Invalid state transition: "
+                                                    + currentStateSO.currentState.GetType().Name + " to "
+                                                    + targetState.GetType().Name);
             }
 
             currentStateSO.currentState.Exit();

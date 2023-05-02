@@ -68,8 +68,7 @@ namespace TowerDefense.Combat.Enemy
         /// </summary>
         public virtual void HandleDestinationReached()
         {
-            //TODO: whatever happens when enemy has reached flower tower
-            HandleDeath(null);
+            //TODO: consider removing this, the flowerTower handles this by itself
         }
         
         public void ResetTarget()
