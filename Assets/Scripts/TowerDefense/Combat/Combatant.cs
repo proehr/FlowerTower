@@ -37,7 +37,7 @@ namespace TowerDefense.Combat
         
         public virtual void HandleDeath(Combatant killer)
         {
-            killer.ReceiveKillCredit();
+            killer?.ReceiveKillCredit();
             Destroy(gameObject);
         }
 

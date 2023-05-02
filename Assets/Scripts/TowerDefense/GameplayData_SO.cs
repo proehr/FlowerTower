@@ -10,7 +10,7 @@ namespace TowerDefense
     public class GameplayData_SO : ScriptableObject
     {
         [SerializeField] private int currentLevelIndex = 0;
-        [SerializeField] private List<Level> levelPrefabs;
+        [SerializeField] private List<LevelSelection.Level> levelPrefabs;
         [SerializeField] private ResultType resultType;
         
         
@@ -19,7 +19,7 @@ namespace TowerDefense
 
         public int CurrentLevelIndex => currentLevelIndex;
 
-        public List<Level> LevelPrefabs => levelPrefabs;
+        public List<LevelSelection.Level> LevelPrefabs => levelPrefabs;
 
         public ResultType ResultType
         {
