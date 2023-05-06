@@ -8,8 +8,10 @@ namespace TowerDefense.Combat.Enemy
     {
 
         [SerializeField] protected EnemyData enemyData;
-        [SerializeField] protected Combatant targetCombatant;
         [SerializeField] private float minDistanceFromTower;
+        
+        private Combatant targetCombatant;
+        
 
         // Start is called before the first frame update
         protected virtual void Start()

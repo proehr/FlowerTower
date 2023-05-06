@@ -29,8 +29,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8153367283878973293}
   - {fileID: 8645852998454488382}
+  - {fileID: 8153367283878973293}
   - {fileID: 9070860355400693865}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -65,7 +65,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5940260378576338321, guid: abe17f50afc47054fa339b7467bcaff0, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5940260378576338321, guid: abe17f50afc47054fa339b7467bcaff0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -111,6 +111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayController
       objectReference: {fileID: 0}
+    - target: {fileID: 5940260378576338323, guid: abe17f50afc47054fa339b7467bcaff0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe17f50afc47054fa339b7467bcaff0, type: 3}
 --- !u!4 &8153367283878973293 stripped
@@ -146,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 493893090109141781, guid: 1238b306189896049979785bd6a5265a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493893090109141781, guid: 1238b306189896049979785bd6a5265a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -226,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 493893090109141785, guid: 1238b306189896049979785bd6a5265a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1238b306189896049979785bd6a5265a, type: 3}

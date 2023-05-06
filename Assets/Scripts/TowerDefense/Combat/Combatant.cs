@@ -5,9 +5,9 @@ namespace TowerDefense.Combat
 {
     public abstract class Combatant : MonoBehaviour
     {
-        public float actionCooldown;
-        public float attackCooldown;
-        public float currentHealth;
+        protected internal float actionCooldown;
+        protected float attackCooldown;
+        protected internal float currentHealth;
         
         public virtual void ReceiveAttack(Combatant source, params AttackEffect[] effects)
         {
