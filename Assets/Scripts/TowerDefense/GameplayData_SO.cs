@@ -15,9 +15,14 @@ namespace TowerDefense
         
         
         [SerializeField] private GameEvent onNextRound;
-        [SerializeField] private GameEvent onFinishMap;
+        [SerializeField] private GameEvent onFlowerTowerDeath;
+        [SerializeField] private GameEvent onFinalEnemyKilled;
 
-        public int CurrentLevelIndex => currentLevelIndex;
+        public int CurrentLevelIndex
+        {
+            get => currentLevelIndex;
+            set => currentLevelIndex = value;
+        }
 
         public List<LevelSelection.Level> LevelPrefabs => levelPrefabs;
 
@@ -28,7 +33,9 @@ namespace TowerDefense
         }
 
         public GameEvent OnNextRound => onNextRound;
-        public GameEvent OnFinishMap => onFinishMap;
-        
+
+        public GameEvent OnFlowerTowerDeath => onFlowerTowerDeath;
+
+        public GameEvent OnFinalEnemyKilled => onFinalEnemyKilled;
     }
 }

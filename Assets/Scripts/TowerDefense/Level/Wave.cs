@@ -29,10 +29,16 @@ namespace TowerDefense.Level
 		/// </summary>
 		protected RepeatingTimer m_SpawnTimer;
 
+		internal List<Enemy> instantiatedEnemies = new List<Enemy>();
+		
+		internal bool waveCompleted;
+
 		/// <summary>
 		/// The event that is fired when a Wave is completed
 		/// </summary>
-		public event Action waveCompleted;
+		internal event Action onWaveCompleted;
+
+		internal Action allWaveEnemiesDead;
 
 		public virtual float progress
 		{
@@ -113,7 +119,18 @@ namespace TowerDefense.Level
 			Vector3 spawnPosition = node.GetRandomPointInNodeArea();
 			// TODO: place enemies into a container
 			Enemy enemy = Instantiate(enemyConfig.enemyPrefab, node.transform.position, Quaternion.identity, transform);
+			instantiatedEnemies.Add(enemy);
+			enemy.onDeath += () => HandleEnemyDeath(enemy);
 			enemy.SetNode(node);
+		}
+
+		private void HandleEnemyDeath(Enemy enemy)
+		{
+			instantiatedEnemies.Remove(enemy);
+			if (instantiatedEnemies.Count == 0 && waveCompleted)
+			{
+				allWaveEnemiesDead?.Invoke();
+			}
 		}
 
 		/// <summary>
@@ -121,10 +138,8 @@ namespace TowerDefense.Level
 		/// </summary>
 		protected void SafelyBroadcastWaveCompletedEvent()
 		{
-			if (waveCompleted != null)
-			{
-				waveCompleted();
-			}
+			waveCompleted = true;
+			onWaveCompleted?.Invoke();
 		}
 	}
 }

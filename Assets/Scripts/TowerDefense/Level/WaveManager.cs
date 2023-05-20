@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Extensions;
+using DataStructures.Events;
 using UnityEngine;
 
 namespace TowerDefense.Level
@@ -25,6 +26,8 @@ namespace TowerDefense.Level
 		/// </summary>
 		[Tooltip("Specify this list in order")]
 		public List<Wave> waves = new List<Wave>();
+
+		[SerializeField] private GameEvent onFinalEnemyDeath;
 
 		/// <summary>
 		/// The current wave number
@@ -96,7 +99,7 @@ namespace TowerDefense.Level
 		/// </summary>
 		protected virtual void NextWave()
 		{
-			waves[m_CurrentIndex].waveCompleted -= NextWave;
+			waves[m_CurrentIndex].onWaveCompleted -= NextWave;
 			if (waves.Next(ref m_CurrentIndex))
 			{
 				InitCurrentWave();
@@ -104,6 +107,7 @@ namespace TowerDefense.Level
 			else
 			{
 				SafelyCallSpawningCompleted();
+				waves[^1].allWaveEnemiesDead += onFinalEnemyDeath.Raise;
 			}
 		}
 
@@ -113,7 +117,7 @@ namespace TowerDefense.Level
 		protected virtual void InitCurrentWave()
 		{
 			Wave wave = waves[m_CurrentIndex];
-			wave.waveCompleted += NextWave;
+			wave.onWaveCompleted += NextWave;
 			wave.Init();
 			if (waveChanged != null)
 			{

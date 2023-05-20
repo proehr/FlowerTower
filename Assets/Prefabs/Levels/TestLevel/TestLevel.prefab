@@ -204,6 +204,7 @@ MonoBehaviour:
   startWavesOnAwake: 1
   waves:
   - {fileID: 6130489674224891050}
+  onFinalEnemyDeath: {fileID: 11400000, guid: 245c805c27c2a1444980a7d3918f36f7, type: 2}
 --- !u!114 &6130489674224891050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +314,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 92437246044768244}
     m_Modifications:
+    - target: {fileID: 3590758160842243437, guid: 5a2097a27ff32e9429fefad96ba3e7aa, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3590758160842243437, guid: 5a2097a27ff32e9429fefad96ba3e7aa, type: 3}
+      propertyPath: onFlowerTowerDeath
+      value: 
+      objectReference: {fileID: 11400000, guid: 8fb5d3f3d78c96e4ca79245d7db321fc, type: 2}
     - target: {fileID: 3590758160842243438, guid: 5a2097a27ff32e9429fefad96ba3e7aa, type: 3}
       propertyPath: m_RootOrder
       value: 0
