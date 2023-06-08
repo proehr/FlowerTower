@@ -40,6 +40,42 @@
                     "processors": "",
                     "interactions": "MouseDrag",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SpeedOne",
+                    "type": "Button",
+                    "id": "e24837e8-e073-4ad4-a81a-1f17b83d458d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SpeedTwo",
+                    "type": "Button",
+                    "id": "7feecbe7-1195-495a-a8e2-6eb0846f1894",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SpeedThree",
+                    "type": "Button",
+                    "id": "750f4134-897b-45fb-bbd9-7b0916578d40",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TriggerPause",
+                    "type": "Button",
+                    "id": "97d2ef76-a4e3-4686-8e57-9e5c6793be67",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -119,6 +155,61 @@
                     "action": "CameraDrag",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "3a87e71a-3de2-43a6-b09c-3e1a914b3eed",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SpeedOne",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "93a8a595-e23c-436a-9a5d-5a641db7a2f4",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SpeedTwo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d1a06d9-1b30-4350-bf11-88f6b8cd079a",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SpeedThree",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7874c44-3205-44d7-969c-bf73ded61c9f",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "TriggerPause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28d41787-267c-48b4-9e67-23cc0ffb0ea2",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "TriggerPause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
