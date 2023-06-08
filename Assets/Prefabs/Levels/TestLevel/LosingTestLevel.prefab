@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 193571018, guid: c280cc10b2433c949bc65f53c31d9bfe, type: 3}
+      propertyPath: maxHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193571018, guid: c280cc10b2433c949bc65f53c31d9bfe, type: 3}
+      propertyPath: gameplayData
+      value: 
+      objectReference: {fileID: 11400000, guid: db58d2782babf28479932f67b6908f4c, type: 2}
+    - target: {fileID: 193571019, guid: c280cc10b2433c949bc65f53c31d9bfe, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6130489673227059175, guid: c280cc10b2433c949bc65f53c31d9bfe, type: 3}
       propertyPath: typeData.towerLevels.Array.data[0].maxAggroRange
       value: 0.1

@@ -1,3 +1,4 @@
+using System;
 using TowerDefense.Combat.AttackEffects;
 using TowerDefense.Combat.Tower;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace TowerDefense.Combat.Enemy
         [SerializeField] private float minDistanceFromTower;
         
         private Combatant targetCombatant;
+
+        public Action onDeath;
         
 
         // Start is called before the first frame update
@@ -70,6 +73,7 @@ namespace TowerDefense.Combat.Enemy
 
         public override void HandleDeath(Combatant killer)
         {
+            onDeath?.Invoke();
             if (killer as TowerBehaviour)
             {
                 ((TowerBehaviour) killer).RemoveEnemy(this);

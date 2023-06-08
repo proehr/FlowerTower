@@ -1,4 +1,6 @@
-﻿using TowerDefense.Combat.AttackEffects;
+﻿using System;
+using DataStructures.Events;
+using TowerDefense.Combat.AttackEffects;
 using TowerDefense.GameplayController;
 using UnityEngine;
 
@@ -6,8 +8,14 @@ namespace TowerDefense.Combat
 {
     public sealed class FlowerTower : Combatant
     {
-        [SerializeField] private GameplayData_SO gameplayData;
-        
+        [SerializeField] private GameEvent onFlowerTowerDeath;
+        [SerializeField] private int maxHealth;
+
+        private void Awake()
+        {
+            this.currentHealth = maxHealth;
+        }
+
         public override void Attack(Combatant target)
         {
             target.ReceiveAttack(this, new OneHitAttack());
@@ -30,8 +38,7 @@ namespace TowerDefense.Combat
 
         public override void HandleDeath(Combatant killer)
         {
-            gameplayData.ResultType = ResultType.LOSE;
-            gameplayData.OnFinishMap.Raise();
+            onFlowerTowerDeath.Raise();
         }
     }
 }

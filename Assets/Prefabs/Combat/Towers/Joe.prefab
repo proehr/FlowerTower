@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5422386628108549441}
   - component: {fileID: 5422386628108549440}
   - component: {fileID: 5422386628108549443}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: AggroVisualizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
