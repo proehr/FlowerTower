@@ -24,9 +24,11 @@ namespace TowerPlacement
         [SerializeField, Layer] private int uiLayer;
 
         private Transform _uiParent;
-        private bool _isPointerOverGameObject;
+        private bool _isPointerOverUIElement;
         private bool _isSuccessfulDrop;
 
+        private Quaternion _baseRotation;
+        private Vector3 _baseScale;
         private Vector3 _mousePosition;
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -38,9 +40,11 @@ namespace TowerPlacement
                 eventData.pointerDrag = null;
                 return;
             }
-            
+
+            _baseRotation = transform.localRotation;
+            _baseScale = transform.localScale;
             _isSuccessfulDrop = false;
-            _isPointerOverGameObject = true;
+            _isPointerOverUIElement = true;
             _uiParent = transform.parent;
             _mousePosition = (Vector3)Mouse.current.position.ReadValue() - GetTransformScreenPoint();
 
@@ -51,7 +55,7 @@ namespace TowerPlacement
         {
             UpdateIsPointerOverUI();
 
-            if (_isPointerOverGameObject)
+            if (_isPointerOverUIElement)
             {
                 PlaceOnUI();
             }
@@ -105,19 +109,18 @@ namespace TowerPlacement
 
         private void UpdateIsPointerOverUI()
         {
-            bool isPointerOverGameObject = IsPointerOverUIElement(GetEventSystemRaycastResults());
+            bool isPointerOverUIElement = IsPointerOverUIElement(GetEventSystemRaycastResults());
             
-            if (_isPointerOverGameObject == isPointerOverGameObject) return;
-
+            if (_isPointerOverUIElement == isPointerOverUIElement) return;
             
-            _isPointerOverGameObject = isPointerOverGameObject;
-            if (isPointerOverGameObject)
+            _isPointerOverUIElement = isPointerOverUIElement;
+            if (isPointerOverUIElement)
             {
-                OnPointerEnterGameObject();
+                OnPointerEnterUIElement();
             }
             else
             {
-                OnPointerExitGameObject();
+                OnPointerExitUIElement();
             }
         }
 
@@ -136,7 +139,7 @@ namespace TowerPlacement
             return raycastResults;
         }
 
-        private void OnPointerEnterGameObject()
+        private void OnPointerEnterUIElement()
         {
             AttachToUI();
         }
@@ -146,10 +149,11 @@ namespace TowerPlacement
             Transform bufferTransform;
             (bufferTransform = transform).SetParent(_uiParent);
             bufferTransform.localPosition = Vector3.zero;
-            bufferTransform.localRotation = Quaternion.identity;
+            bufferTransform.localRotation = _baseRotation;
+            bufferTransform.localScale = _baseScale;
         }
 
-        private void OnPointerExitGameObject()
+        private void OnPointerExitUIElement()
         {
             if (transform.parent)
             {
@@ -162,6 +166,7 @@ namespace TowerPlacement
             Transform bufferTransform = transform;
             bufferTransform.rotation = Quaternion.identity;
             bufferTransform.transform.parent = null;
+            bufferTransform.localScale = onDropInstantiationTower.transform.localScale;
         }
 
         private void PlaceOnUI()

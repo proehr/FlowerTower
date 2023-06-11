@@ -1409,14 +1409,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 959726426260414236, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: uiCamera
-      value: 
-      objectReference: {fileID: 133407262}
-    - target: {fileID: 959726426733825910, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: uiCamera
-      value: 
-      objectReference: {fileID: 133407262}
     - target: {fileID: 2852562678275416984, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1509,7 +1501,7 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 133407262}
-    - target: {fileID: 2943625263446712890, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
+    - target: {fileID: 9191956344414418883, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
       propertyPath: uiCamera
       value: 
       objectReference: {fileID: 133407262}
