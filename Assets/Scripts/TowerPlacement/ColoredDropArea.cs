@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace TowerPlacement
 {
     [RequireComponent(typeof(Renderer))]
-    public class ColoredDroppable : BaseDroppable
+    public class ColoredDropArea : BaseDropArea
     {
-        [SerializeField] private bool isDroppable;
+        [SerializeField] private bool isDropArea;
         [SerializeField] private Color hoverColor;
 
         [Header("Highlightable")] [SerializeField]
@@ -37,7 +38,7 @@ namespace TowerPlacement
         }
 
         protected override bool IsHighlightable() => isHighlightable;
-        protected override bool IsDroppable() => isDroppable;
+        protected override bool IsDropArea() => isDropArea;
 
         protected override void OnPointerDragEnter()
         {

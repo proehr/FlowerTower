@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 
 namespace TowerPlacement
 {
-    public abstract class BaseDroppable : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+    public abstract class BaseDropArea : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        private static readonly List<BaseDroppable> DroppableList = new List<BaseDroppable>();
+        private static readonly List<BaseDropArea> DroppableList = new List<BaseDropArea>();
 
         protected virtual void Awake()
         {
@@ -24,11 +24,11 @@ namespace TowerPlacement
         {
             if (eventData.pointerDrag.TryGetComponent(out IDroppable droppable))
             {
-                droppable.OnDrop(IsDroppable());
+                droppable.OnDrop(IsDropArea());
             }
         }
 
-        protected abstract bool IsDroppable();
+        protected abstract bool IsDropArea();
 
         public void OnPointerEnter(PointerEventData eventData)
         {

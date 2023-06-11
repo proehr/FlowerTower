@@ -12,8 +12,8 @@ namespace TowerPlacement
         [SerializeField] private GameObject onDropInstantiationTower;
         [SerializeField] private Camera uiCamera;
         [SerializeField] private Camera sceneCamera;
-        [SerializeField] private LayerMask raycastPlacementLayer;
-        [SerializeField] private LayerMask uiLayer;
+        [SerializeField] private LayerMask towerPlacementLayer;
+        [SerializeField, Layer] private int uiLayer;
 
         private Transform _uiParent;
         private bool _isPointerOverGameObject;
@@ -33,7 +33,7 @@ namespace TowerPlacement
             _uiParent = transform.parent;
             _mousePosition = (Vector3)Mouse.current.position.ReadValue() - GetTransformScreenPoint();
 
-            BaseDroppable.ShowDroppablesHighlighting();
+            BaseDropArea.ShowDroppablesHighlighting();
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -57,7 +57,7 @@ namespace TowerPlacement
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            BaseDroppable.HideDroppablesHighlighting();
+            BaseDropArea.HideDroppablesHighlighting();
             
             if (!_isSuccessfulDrop)
             {
@@ -73,8 +73,10 @@ namespace TowerPlacement
         private void UpdateIsPointerOverUI()
         {
             bool isPointerOverGameObject = IsPointerOverUIElement(GetEventSystemRaycastResults());
+            
             if (_isPointerOverGameObject == isPointerOverGameObject) return;
 
+            
             _isPointerOverGameObject = isPointerOverGameObject;
             if (isPointerOverGameObject)
             {
@@ -146,7 +148,7 @@ namespace TowerPlacement
         {
             Vector3 mousePos = Mouse.current.position.ReadValue();
             Ray ray = sceneCamera.ScreenPointToRay(mousePos);
-            return Physics.Raycast(ray, out hit, short.MaxValue, raycastPlacementLayer);
+            return Physics.Raycast(ray, out hit, short.MaxValue, towerPlacementLayer);
         }
     }
 }
