@@ -27,8 +27,6 @@ namespace DataStructures.RuntimeSets
             {
                 runtimeSet.Add(_topic);
             }
-            
-            Debug.Log(runtimeSet.items.Count);
         }
 
         private void Start()
