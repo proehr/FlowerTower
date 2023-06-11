@@ -16,7 +16,7 @@ namespace TowerDefense.Combat.Enemy
         }
 
         //Called when an enemy enters the aggro range of a Tower
-        public override void BeginCombat(TowerBehaviour tower)
+        public override void BeginCombat(Combatant tower)
         {
             if (!hasBeenInCombat)
             {
@@ -35,7 +35,10 @@ namespace TowerDefense.Combat.Enemy
 
         private void ExplodeOnDeath(Combatant killer)
         {
-            killer.ReceiveAttack(this, new DirectDamageEffect(explodeOnDeathDamage));
+            if (killer as TowerBehaviour)
+            {
+                killer.ReceiveAttack(this, new DirectDamageEffect(explodeOnDeathDamage));
+            }
         }
     }
 }

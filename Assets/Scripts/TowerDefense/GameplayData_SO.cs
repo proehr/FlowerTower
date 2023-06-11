@@ -10,16 +10,21 @@ namespace TowerDefense
     public class GameplayData_SO : ScriptableObject
     {
         [SerializeField] private int currentLevelIndex = 0;
-        [SerializeField] private List<Level> levelPrefabs;
+        [SerializeField] private List<LevelSelection.Level> levelPrefabs;
         [SerializeField] private ResultType resultType;
         
         
         [SerializeField] private GameEvent onNextRound;
-        [SerializeField] private GameEvent onFinishMap;
+        [SerializeField] private GameEvent onFlowerTowerDeath;
+        [SerializeField] private GameEvent onFinalEnemyKilled;
 
-        public int CurrentLevelIndex => currentLevelIndex;
+        public int CurrentLevelIndex
+        {
+            get => currentLevelIndex;
+            set => currentLevelIndex = value;
+        }
 
-        public List<Level> LevelPrefabs => levelPrefabs;
+        public List<LevelSelection.Level> LevelPrefabs => levelPrefabs;
 
         public ResultType ResultType
         {
@@ -28,7 +33,9 @@ namespace TowerDefense
         }
 
         public GameEvent OnNextRound => onNextRound;
-        public GameEvent OnFinishMap => onFinishMap;
-        
+
+        public GameEvent OnFlowerTowerDeath => onFlowerTowerDeath;
+
+        public GameEvent OnFinalEnemyKilled => onFinalEnemyKilled;
     }
 }

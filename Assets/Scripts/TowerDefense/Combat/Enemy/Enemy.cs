@@ -1,3 +1,4 @@
+using System;
 using TowerDefense.Combat.AttackEffects;
 using TowerDefense.Combat.Tower;
 using UnityEngine;
@@ -8,18 +9,19 @@ namespace TowerDefense.Combat.Enemy
     {
 
         [SerializeField] protected EnemyData enemyData;
-        
-        [SerializeField] protected Vector3 flowerTower;
-        [SerializeField] protected TowerBehaviour targetTower;
-
         [SerializeField] private float minDistanceFromTower;
+        
+        private Combatant targetCombatant;
+
+        public Action onDeath;
+        
 
         // Start is called before the first frame update
         protected virtual void Start()
         {
             currentHealth = enemyData.maxHealth;
             attackCooldown = 1f / enemyData.attackSpeed;
-            targetTower = null;
+            targetCombatant = null;
         }
 
 
@@ -39,21 +41,16 @@ namespace TowerDefense.Combat.Enemy
 
         private void HandleCombat()
         {
-            if (targetTower)
+            if (targetCombatant)
             {
                 if (attackCooldown <= 0f)
                 {
-                    Attack(targetTower);
+                    Attack(targetCombatant);
                 }
                 else
                 {
                     attackCooldown -= Time.deltaTime;
                 }
-            }
-            if (Mathf.Abs((transform.position - flowerTower).magnitude) <= movementData.movementSpeed * Time.deltaTime)
-            {
-                // TODO: attack flower
-                HandleDeath(null);
             }
         }
 
@@ -63,9 +60,9 @@ namespace TowerDefense.Combat.Enemy
             attackCooldown += 1 / enemyData.attackSpeed;
         }
 
-        public virtual void BeginCombat(TowerBehaviour tower)
+        public virtual void BeginCombat(Combatant tower)
         {
-            targetTower = tower;
+            targetCombatant = tower;
             float distance = Mathf.Abs((transform.position - tower.transform.position).magnitude);
 
             SetTarget(Vector3.Lerp(
@@ -76,11 +73,12 @@ namespace TowerDefense.Combat.Enemy
 
         public override void HandleDeath(Combatant killer)
         {
+            onDeath?.Invoke();
             if (killer as TowerBehaviour)
             {
                 ((TowerBehaviour) killer).RemoveEnemy(this);
-                base.HandleDeath(killer);
             }
+            base.HandleDeath(killer);
         }
     }
 }

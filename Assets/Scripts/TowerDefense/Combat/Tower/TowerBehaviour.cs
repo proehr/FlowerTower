@@ -6,17 +6,18 @@ namespace TowerDefense.Combat.Tower
 {
     public class TowerBehaviour : Combatant
     {
+        protected TowerCombatData currentCombatData;
+
         [SerializeField] private CapsuleCollider aggroRange;
         [SerializeField] private TowerTypeData typeData;
 
         private int currentLevel = 0;
         private int killCount;
-        
+
         private List<Enemy.Enemy> enemies = new();
         private float currentAggro;
         private float aggroCooldown;
 
-        protected TowerCombatData currentCombatData;
 
         // Start is called before the first frame update
         public virtual void Awake()
@@ -47,7 +48,6 @@ namespace TowerDefense.Combat.Tower
             {
                 actionCooldown -= Time.deltaTime;
             }
-
         }
 
         private void HandleCombat()
@@ -62,7 +62,7 @@ namespace TowerDefense.Combat.Tower
                 attackCooldown -= Time.deltaTime;
             }
         }
-        
+
         protected virtual void HandleAggro()
         {
             if (aggroCooldown <= 0f)
@@ -125,6 +125,16 @@ namespace TowerDefense.Combat.Tower
                 currentCombatData = new TowerCombatData(typeData.towerLevels[currentLevel]);
                 // TODO visual update for tower upgrade
             }
+        }
+
+        public override void HandleDeath(Combatant killer)
+        {
+            foreach (Enemy.Enemy enemy in enemies)
+            {
+                enemy.ResetTarget();
+            }
+
+            base.HandleDeath(killer);
         }
     }
 }

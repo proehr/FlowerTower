@@ -13,7 +13,8 @@ namespace TowerDefense.GameplayController
         private void Awake()
         {
             gameplayData.OnNextRound.RegisterListener(StartTDGameplay);
-            gameplayData.OnFinishMap.RegisterListener(ShowResultScreen);
+            gameplayData.OnFlowerTowerDeath.RegisterListener(ShowLossResultScreen);
+            gameplayData.OnFinalEnemyKilled.RegisterListener(ShowWinResultScreen);
 
             InitializeStateMachine(new TDGameplayState(gameplayData, levelSlot));
         }
@@ -23,10 +24,18 @@ namespace TowerDefense.GameplayController
             TransitionTo(new TDGameplayState(gameplayData, levelSlot));
         }
 
-        private void ShowResultScreen()
+        private void ShowWinResultScreen()
         {
+            gameplayData.ResultType = ResultType.WIN;
+            gameplayData.CurrentLevelIndex++;
             TransitionTo(new RoundResultScreenState(levelResultUiCanvas));
         }
-        
+
+
+        private void ShowLossResultScreen()
+        {
+            gameplayData.ResultType = ResultType.LOSE;
+            TransitionTo(new RoundResultScreenState(levelResultUiCanvas));
+        }
     }
 }

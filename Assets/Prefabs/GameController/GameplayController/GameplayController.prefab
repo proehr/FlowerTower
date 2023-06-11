@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5940260378576338321
 Transform:
   m_ObjectHideFlags: 0
@@ -79,11 +79,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStateSO: {fileID: 11400000, guid: 3426a58962badc34692b615859ba7142, type: 2}
-  onNextRound: {fileID: 11400000, guid: 781724212727f9540a88e2d7380194ca, type: 2}
-  onFinishMap: {fileID: 11400000, guid: 8fb5d3f3d78c96e4ca79245d7db321fc, type: 2}
-  currentLevel: {fileID: 11400000, guid: 139681a3fa6737749a312d32b20760b0, type: 2}
+  gameplayData: {fileID: 11400000, guid: 7027d4043bf32ee45be676ca014cfd8f, type: 2}
   levelSlot: {fileID: 855230998361315606}
-  resultScreen: {fileID: 4241427016878809353}
+  levelResultUiCanvas: {fileID: 4241427016878809353}
 --- !u!114 &5940260378576338320
 MonoBehaviour:
   m_ObjectHideFlags: 0
