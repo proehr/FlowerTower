@@ -17,7 +17,8 @@ namespace TowerPlacement
         [SerializeField] private GameObjectRuntimeSet gameObjectRuntimeSet;
         [SerializeField] private IntVariable killCount;
 
-        [Header("Drag Relevant")]
+        [Header("Drag Relevant")] 
+        [SerializeField] private GameObject cardGameObject;
         [SerializeField] private Camera uiCamera;
         [SerializeField, Layer] private int towerDropAreaLayer;
         [SerializeField, Layer] private int uiLayer;
@@ -81,6 +82,7 @@ namespace TowerPlacement
             else
             {
                 Destroy(gameObject);
+                Destroy(cardGameObject);
             }
         }
         
@@ -88,13 +90,11 @@ namespace TowerPlacement
         {
             int totalRequired = 0;
             
-            Debug.Log(gameObjectRuntimeSet.items.Count);
             for (int i = 1; i <= gameObjectRuntimeSet.items.Count; i++)
             {
                 totalRequired += 4 + i * (i + 1);
             }
 
-            Debug.Log(totalRequired + " " + killCount.Get());
             return totalRequired <= killCount.Get();
         }
 
