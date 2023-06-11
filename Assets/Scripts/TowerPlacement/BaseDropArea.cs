@@ -10,6 +10,8 @@ namespace TowerPlacement
     {
         private static readonly List<BaseDropArea> DroppableList = new List<BaseDropArea>();
 
+        private GameObject _droppedItem;
+
         protected virtual void Awake()
         {
             DroppableList.Add(this);
@@ -22,17 +24,26 @@ namespace TowerPlacement
 
         public virtual void OnDrop(PointerEventData eventData)
         {
-            if (eventData.pointerDrag.TryGetComponent(out IDroppable droppable))
+            if (!eventData.pointerDrag.TryGetComponent(out IDroppable droppable)) return;
+            
+            droppable.OnDrop(InternalIsDropArea());
+
+            if (InternalIsDropArea())
             {
-                droppable.OnDrop(IsDropArea());
+                _droppedItem = droppable.ProvideInstantiatedPrefab();
             }
         }
 
+        private bool InternalIsDropArea()
+        {
+            return _droppedItem == null && IsDropArea();
+        }
+        
         protected abstract bool IsDropArea();
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (eventData.pointerDrag)
+            if (eventData.pointerDrag && InternalIsDropArea())
             {
                 OnPointerDragEnter();
             }
@@ -42,7 +53,7 @@ namespace TowerPlacement
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (eventData.pointerDrag)
+            if (eventData.pointerDrag && InternalIsDropArea())
             {
                 OnPointerDragExit();
             }

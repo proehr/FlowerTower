@@ -383,9 +383,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6439776022488950861, guid: a03cd5504171a784289c5e0fd43c8b6c, type: 3}
+      propertyPath: killCount
+      value: 
+      objectReference: {fileID: 11400000, guid: b8d4d315e79aadb42b624c4c976b9052, type: 2}
+    - target: {fileID: 6439776022488950861, guid: a03cd5504171a784289c5e0fd43c8b6c, type: 3}
       propertyPath: sceneCamera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6439776022488950861, guid: a03cd5504171a784289c5e0fd43c8b6c, type: 3}
+      propertyPath: gameObjectRuntimeSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 643794f1753a30c4597924926ef085e9, type: 2}
     - target: {fileID: 6439776022488950861, guid: a03cd5504171a784289c5e0fd43c8b6c, type: 3}
       propertyPath: onDropInstantiationTower
       value: 

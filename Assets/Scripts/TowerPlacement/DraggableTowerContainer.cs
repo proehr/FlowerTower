@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using DataStructures.RuntimeSets;
+using General_Logic.Variables;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -10,9 +12,14 @@ namespace TowerPlacement
     public class DraggableTowerContainer : MonoBehaviour, IBeginDragHandler, IDragHandler, IDroppable, IEndDragHandler
     {
         [SerializeField] private GameObject onDropInstantiationTower;
+        
+        [Header("Kill Requirement")]
+        [SerializeField] private GameObjectRuntimeSet gameObjectRuntimeSet;
+        [SerializeField] private IntVariable killCount;
+
+        [Header("Drag Relevant")]
         [SerializeField] private Camera uiCamera;
-        [SerializeField] private Camera sceneCamera;
-        [SerializeField] private LayerMask towerPlacementLayer;
+        [SerializeField, Layer] private int towerDropAreaLayer;
         [SerializeField, Layer] private int uiLayer;
 
         private Transform _uiParent;
@@ -21,13 +28,16 @@ namespace TowerPlacement
 
         private Vector3 _mousePosition;
 
-        private Vector3 GetTransformScreenPoint()
-        {
-            return uiCamera.WorldToScreenPoint(transform.position);
-        }
-
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (gameObjectRuntimeSet.items.Count != 0 && !HasEnoughKillsForTower())
+            {
+                //TODO: implement error message ui
+                Debug.LogWarning("Not enough kills!");
+                eventData.pointerDrag = null;
+                return;
+            }
+            
             _isSuccessfulDrop = false;
             _isPointerOverGameObject = true;
             _uiParent = transform.parent;
@@ -54,6 +64,11 @@ namespace TowerPlacement
         {
             _isSuccessfulDrop = isSuccessfulDrop;
         }
+        
+        public GameObject ProvideInstantiatedPrefab()
+        {
+            return Instantiate(onDropInstantiationTower, transform.position, Quaternion.identity);
+        }
 
         public void OnEndDrag(PointerEventData eventData)
         {
@@ -65,9 +80,27 @@ namespace TowerPlacement
             }
             else
             {
-                Instantiate(onDropInstantiationTower, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
+        }
+        
+        private bool HasEnoughKillsForTower()
+        {
+            int totalRequired = 0;
+            
+            Debug.Log(gameObjectRuntimeSet.items.Count);
+            for (int i = 1; i <= gameObjectRuntimeSet.items.Count; i++)
+            {
+                totalRequired += 4 + i * (i + 1);
+            }
+
+            Debug.Log(totalRequired + " " + killCount.Get());
+            return totalRequired <= killCount.Get();
+        }
+
+        private Vector3 GetTransformScreenPoint()
+        {
+            return uiCamera.WorldToScreenPoint(transform.position);
         }
 
         private void UpdateIsPointerOverUI()
@@ -94,7 +127,7 @@ namespace TowerPlacement
                 curRaycastResult.gameObject.layer == uiLayer);
         }
 
-        static List<RaycastResult> GetEventSystemRaycastResults()
+        private List<RaycastResult> GetEventSystemRaycastResults()
         {
             PointerEventData eventData = new PointerEventData(EventSystem.current)
                 { position = Mouse.current.position.ReadValue() };
@@ -139,16 +172,23 @@ namespace TowerPlacement
 
         private void PlaceOnScene()
         {
-            if (!HasRaycastOnLayer(out RaycastHit raycastHit)) return;
+            if (!HasRaycastOnLayer(out RaycastResult raycastResult)) return;
 
-            transform.position = SnapToHexGrid.ToHexPosition(raycastHit.point);
+            transform.position = SnapToHexGrid.ToHexPosition(raycastResult.worldPosition);
         }
 
-        private bool HasRaycastOnLayer(out RaycastHit hit)
+        private bool HasRaycastOnLayer(out RaycastResult hit)
         {
-            Vector3 mousePos = Mouse.current.position.ReadValue();
-            Ray ray = sceneCamera.ScreenPointToRay(mousePos);
-            return Physics.Raycast(ray, out hit, short.MaxValue, towerPlacementLayer);
+            hit = default;
+            List<RaycastResult> raycastResults = GetEventSystemRaycastResults();
+            
+            foreach (var raycastResult in raycastResults.Where(raycastResult => raycastResult.gameObject.layer == towerDropAreaLayer))
+            {
+                hit = raycastResult;
+                return true;
+            }
+
+            return false;
         }
     }
 }

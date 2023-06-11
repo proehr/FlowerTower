@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 8305567716787900810}
   - component: {fileID: 8305567716787900811}
   - component: {fileID: 8305567716787900820}
+  - component: {fileID: 3592540751074996067}
   m_Layer: 0
   m_Name: Jenny
   m_TagString: Untagged
@@ -179,6 +180,24 @@ MonoBehaviour:
       aggroGenerationSpeed: 2
       aggroGenerationAmount: 6
       killCountForUpgrade: 2000000
+--- !u!114 &3592540751074996067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305567716787900808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ec08a03a0ead142863c59aba549a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runtimeSet: {fileID: 11400000, guid: 643794f1753a30c4597924926ef085e9, type: 2}
+  registerOnAwake: 1
+  registerOnStart: 0
+  registerOnEnable: 0
+  unregisterOnDisable: 0
+  unregisterOnDestroy: 1
 --- !u!1001 &693941620947623755
 PrefabInstance:
   m_ObjectHideFlags: 0
