@@ -60,8 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onDropInstantiationTower: {fileID: 8305567716787900808, guid: 44b95e5a969f2354bbf903cffd5552be, type: 3}
-  gameObjectRuntimeSet: {fileID: 11400000, guid: 643794f1753a30c4597924926ef085e9, type: 2}
-  killCount: {fileID: 11400000, guid: b8d4d315e79aadb42b624c4c976b9052, type: 2}
+  placedTowerReactiveRuntimeSet: {fileID: 11400000, guid: 643794f1753a30c4597924926ef085e9, type: 2}
+  killCount: {fileID: 11400000, guid: ef87c7c061f1fed4e962e248f08f1a1b, type: 2}
   cardGameObject: {fileID: 0}
   uiCamera: {fileID: 0}
   towerDropAreaLayer: 9

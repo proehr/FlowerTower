@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using DataStructures.ReactiveVariable;
 using DataStructures.RuntimeSets;
-using General_Logic.Variables;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -14,8 +14,8 @@ namespace TowerPlacement
         [SerializeField] private GameObject onDropInstantiationTower;
         
         [Header("Kill Requirement")]
-        [SerializeField] private GameObjectRuntimeSet gameObjectRuntimeSet;
-        [SerializeField] private IntVariable killCount;
+        [SerializeField] private GameObjectReactiveRuntimeSet placedTowerReactiveRuntimeSet;
+        [SerializeField] private IntReactiveVariable killCount;
 
         [Header("Drag Relevant")] 
         [SerializeField] private GameObject cardGameObject;
@@ -33,7 +33,7 @@ namespace TowerPlacement
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (gameObjectRuntimeSet.items.Count != 0 && !HasEnoughKillsForTower())
+            if (placedTowerReactiveRuntimeSet.GetCollection().Count != 0 && !HasEnoughKillsForTower())
             {
                 //TODO: implement error message ui
                 Debug.LogWarning("Not enough kills!");
@@ -94,12 +94,12 @@ namespace TowerPlacement
         {
             int totalRequired = 0;
             
-            for (int i = 1; i <= gameObjectRuntimeSet.items.Count; i++)
+            for (int i = 1; i <= placedTowerReactiveRuntimeSet.GetCollection().Count; i++)
             {
                 totalRequired += 4 + i * (i + 1);
             }
 
-            return totalRequired <= killCount.Get();
+            return totalRequired <= killCount.GetValue();
         }
 
         private Vector3 GetTransformScreenPoint()

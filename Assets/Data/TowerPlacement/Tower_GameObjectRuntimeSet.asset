@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7594718497b0b08448b39c4bc94084fd, type: 3}
   m_Name: Tower_GameObjectRuntimeSet
   m_EditorClassIdentifier: 
+  onValueChanged: {fileID: 11400000, guid: 14742f87b2d57194887fbc21d4f0cdc6, type: 2}
   items: []
