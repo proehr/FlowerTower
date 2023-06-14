@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3927425826894252218}
   - component: {fileID: 3927425826894252209}
   m_Layer: 9
-  m_Name: DropableHexTile
+  m_Name: UndropableHexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2253c243815fc0f468e985ab5d8567b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDropArea: 1
-  hoverColor: {r: 0.07450981, g: 1, b: 0, a: 0.39215687}
-  isHighlightable: 0
-  highlightColor: {r: 0.07450981, g: 1, b: 0, a: 0.39215687}
+  isDropArea: 0
+  hoverColor: {r: 1, g: 0.13088842, b: 0, a: 0.39215687}
+  isHighlightable: 1
+  highlightColor: {r: 1, g: 0.12941177, b: 0, a: 0.39215687}

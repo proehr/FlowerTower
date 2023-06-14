@@ -6,21 +6,21 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ReactiveRuntimeSet", menuName = "Data/ReactiveRuntimeSets/RuntimeSet", order = 0)]
 public class ReactiveRuntimeSet<T> : ScriptableObject
 {
-    protected ReactiveCollection<T> items = new ReactiveCollection<T>();
+    protected ReactiveCollection<T> ReactiveCollection = new ReactiveCollection<T>();
 
-    public ReactiveCollection<T> GetCollection() => items;
+    public ReactiveCollection<T> GetCollection() => ReactiveCollection;
     
     public void Add(T t)
     {
-        if (items.Contains(t)) return;
+        if (ReactiveCollection.Contains(t)) return;
         
-        items.Add(t);
+        ReactiveCollection.Add(t);
     }
 
     public void Remove(T t)
     {
-        if (!items.Contains(t)) return;
+        if (!ReactiveCollection.Contains(t)) return;
             
-        items.Remove(t);
+        ReactiveCollection.Remove(t);
     }
 }

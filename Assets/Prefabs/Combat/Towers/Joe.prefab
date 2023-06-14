@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5422386628108549444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.15, z: 0}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 0.5, y: 0.005, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 5422386628264037312}
   - component: {fileID: 5422386628264037313}
   - component: {fileID: 4036177709293671036}
+  - component: {fileID: 6822178044900701167}
   m_Layer: 0
   m_Name: Joe
   m_TagString: Untagged
@@ -182,6 +183,24 @@ MonoBehaviour:
   stunData:
     stunDuration: 3
     stunAttackInterval: 5
+--- !u!114 &6822178044900701167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5422386628264037314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ec08a03a0ead142863c59aba549a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runtimeSet: {fileID: 11400000, guid: 643794f1753a30c4597924926ef085e9, type: 2}
+  registerOnAwake: 1
+  registerOnStart: 0
+  registerOnEnable: 0
+  unregisterOnDisable: 0
+  unregisterOnDestroy: 1
 --- !u!1001 &1520578615909709543
 PrefabInstance:
   m_ObjectHideFlags: 0
