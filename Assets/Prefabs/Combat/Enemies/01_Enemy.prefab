@@ -103,6 +103,7 @@ MonoBehaviour:
   movementData:
     movementSpeed: 1
   currentNode: {fileID: 0}
+  killCounter: {fileID: 11400000, guid: ef87c7c061f1fed4e962e248f08f1a1b, type: 2}
   enemyData:
     maxHealth: 50
     attackDamage: 4

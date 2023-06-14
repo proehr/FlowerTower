@@ -20,8 +20,9 @@ namespace TowerPlacement
 
         private void Start()
         {
-            _killDisposable = killCount.GetProperty
-                .ObserveEveryValueChanged(x => x)
+            
+            _killDisposable = killCount
+                .ObserveEveryValueChanged(x => x.GetValue())
                 .Subscribe(_ => UpdateKillRequirementText());
             _runtimeSetDisposable = placedTowerReactiveRuntimeSet.GetCollection()
                 .ObserveCountChanged()

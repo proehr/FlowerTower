@@ -48,18 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501102151f7718e43bfe877cba293019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionCooldown: 0
-  attackCooldown: 0.5
-  currentHealth: 50
   movementData:
     movementSpeed: 1
-  target: {x: 0, y: 0.5, z: 15}
+  currentNode: {fileID: 0}
+  killCounter: {fileID: 11400000, guid: ef87c7c061f1fed4e962e248f08f1a1b, type: 2}
   enemyData:
     maxHealth: 50
     attackDamage: 4
     attackSpeed: 2
-  flowerTower: {x: 0, y: 0.5, z: 15}
-  targetTower: {fileID: 0}
   minDistanceFromTower: 1.5
   hasBeenInCombat: 0
   initialSprintModifier: 2.5

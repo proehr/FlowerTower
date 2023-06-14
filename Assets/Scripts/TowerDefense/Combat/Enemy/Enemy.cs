@@ -1,4 +1,5 @@
 using System;
+using DataStructures.ReactiveVariable;
 using TowerDefense.Combat.AttackEffects;
 using TowerDefense.Combat.Tower;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace TowerDefense.Combat.Enemy
 {
     public class Enemy : MovingCombatant
     {
-
+        [SerializeField] private IntReactiveVariable killCounter;
         [SerializeField] protected EnemyData enemyData;
         [SerializeField] private float minDistanceFromTower;
         
@@ -78,6 +79,7 @@ namespace TowerDefense.Combat.Enemy
             {
                 ((TowerBehaviour) killer).RemoveEnemy(this);
             }
+            killCounter.Set(killCounter.GetValue() + 1);
             base.HandleDeath(killer);
         }
     }
