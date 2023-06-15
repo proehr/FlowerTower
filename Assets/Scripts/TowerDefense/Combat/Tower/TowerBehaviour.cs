@@ -28,6 +28,7 @@ namespace TowerDefense.Combat.Tower
             attackCooldown = 1 / currentCombatData.attackSpeed;
             actionCooldown = 0;
             aggroCooldown = 0;
+            WorldUIHandler.instance.RegisterTower(this);
         }
 
         public virtual void OnEnable()
@@ -124,6 +125,7 @@ namespace TowerDefense.Combat.Tower
                 currentLevel++;
                 currentCombatData = new TowerCombatData(typeData.towerLevels[currentLevel]);
                 // TODO visual update for tower upgrade
+                WorldUIHandler.instance.setLevel(this, currentLevel);
             }
         }
 
@@ -135,6 +137,15 @@ namespace TowerDefense.Combat.Tower
             }
 
             base.HandleDeath(killer);
+        }
+
+        public override float getHealthPercentage()
+        {
+            return currentHealth / currentCombatData.maxHealth;
+        }
+        public string getName()
+        {
+            return typeData.name;
         }
     }
 }

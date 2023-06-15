@@ -14,6 +14,7 @@ namespace TowerDefense.Combat
         private void Awake()
         {
             this.currentHealth = maxHealth;
+            WorldUIHandler.instance.RegisterFlower(this);
         }
 
         public override void Attack(Combatant target)
@@ -39,6 +40,11 @@ namespace TowerDefense.Combat
         public override void HandleDeath(Combatant killer)
         {
             onFlowerTowerDeath.Raise();
+        }
+
+        public override float getHealthPercentage()
+        {
+            return currentHealth / maxHealth;
         }
     }
 }

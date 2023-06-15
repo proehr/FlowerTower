@@ -23,6 +23,7 @@ namespace TowerDefense.Combat.Enemy
             currentHealth = enemyData.maxHealth;
             attackCooldown = 1f / enemyData.attackSpeed;
             targetCombatant = null;
+            WorldUIHandler.instance.RegisterEnemy(this);
         }
 
 
@@ -82,6 +83,11 @@ namespace TowerDefense.Combat.Enemy
             }
             killCounter.Set(killCounter.GetValue() + 1);
             base.HandleDeath(killer);
+        }
+
+        public override float getHealthPercentage()
+        {
+            return currentHealth / enemyData.maxHealth;
         }
     }
 }
