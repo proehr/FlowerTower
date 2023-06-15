@@ -12,16 +12,21 @@ namespace TowerPlacement
         [SerializeField] private TMP_Text text;
     
         [Header("Kill Requirement")]
-        [SerializeField] private GameObjectReactiveRuntimeSet placedTowerReactiveRuntimeSet;
         [SerializeField] private IntReactiveVariable killCount;
+        [SerializeField] private GameObjectReactiveRuntimeSet placedTowerReactiveRuntimeSet;
 
         private IDisposable _killDisposable;
         private IDisposable _runtimeSetDisposable;
 
         private void Start()
         {
-            _killDisposable = killCount.GetProperty.Subscribe(_ => UpdateKillRequirementText());
-            _runtimeSetDisposable = placedTowerReactiveRuntimeSet.GetCollection().ObserveCountChanged().Subscribe(_ => UpdateKillRequirementText());
+            
+            _killDisposable = killCount
+                .ObserveEveryValueChanged(x => x.GetValue())
+                .Subscribe(_ => UpdateKillRequirementText());
+            _runtimeSetDisposable = placedTowerReactiveRuntimeSet.GetCollection()
+                .ObserveCountChanged()
+                .Subscribe(_ => UpdateKillRequirementText());
         }
 
         private void OnDestroy()

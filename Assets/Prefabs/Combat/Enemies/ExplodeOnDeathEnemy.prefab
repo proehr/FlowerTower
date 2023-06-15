@@ -2107,6 +2107,7 @@ MonoBehaviour:
   movementData:
     movementSpeed: 1
   currentNode: {fileID: 0}
+  killCounter: {fileID: 11400000, guid: ef87c7c061f1fed4e962e248f08f1a1b, type: 2}
   enemyData:
     maxHealth: 100
     attackDamage: 4
@@ -2386,3 +2387,28 @@ Transform:
   m_Father: {fileID: 690896809969068307}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3434291208500306140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501102151f7718e43bfe877cba293019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  movementData:
+    movementSpeed: 1
+  currentNode: {fileID: 0}
+  killCounter: {fileID: 11400000, guid: ef87c7c061f1fed4e962e248f08f1a1b, type: 2}
+  enemyData:
+    maxHealth: 50
+    attackDamage: 4
+    attackSpeed: 2
+  minDistanceFromTower: 1.5
+  hasBeenInCombat: 0
+  initialSprintModifier: 2.5
+  explodeOnDeathDamage: 8

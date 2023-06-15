@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Core.Extensions;
 using DataStructures.Events;
+using DataStructures.ReactiveVariable;
+using UniRx;
 using UnityEngine;
 
 namespace TowerDefense.Level
@@ -14,7 +16,7 @@ namespace TowerDefense.Level
 		/// <summary>
 		/// Current wave being used
 		/// </summary>
-		protected int m_CurrentIndex;
+		protected ReactiveProperty<int> m_CurrentIndex;
 
 		/// <summary>
 		/// Whether the WaveManager starts waves on Awake - defaulted to null since the LevelManager should call this function
@@ -28,13 +30,15 @@ namespace TowerDefense.Level
 		public List<Wave> waves = new List<Wave>();
 
 		[SerializeField] private GameEvent onFinalEnemyDeath;
+		[SerializeField] private IntReactiveVariable currentStage;
+		[SerializeField] private IntReactiveVariable totalStages;
 
 		/// <summary>
 		/// The current wave number
 		/// </summary>
 		public int waveNumber
 		{
-			get { return m_CurrentIndex + 1; }
+			get { return m_CurrentIndex.Value + 1; }
 		}
 
 		/// <summary>
@@ -49,11 +53,11 @@ namespace TowerDefense.Level
 		{
 			get
 			{
-				if (waves == null || waves.Count <= m_CurrentIndex)
+				if (waves == null || waves.Count <= m_CurrentIndex.Value)
 				{
 					return 0;
 				}
-				return waves[m_CurrentIndex].progress;
+				return waves[m_CurrentIndex.Value].progress;
 			}
 		}
 
@@ -88,6 +92,10 @@ namespace TowerDefense.Level
 		/// </summary>
 		protected virtual void Awake()
 		{
+			m_CurrentIndex = new ReactiveProperty<int>();
+			currentStage.SetProperty(m_CurrentIndex);
+			waves.ObserveEveryValueChanged(x => x.Count).Subscribe(x => totalStages.Set(waves.Count));
+			
 			if (startWavesOnAwake)
 			{
 				StartWaves();
@@ -99,8 +107,8 @@ namespace TowerDefense.Level
 		/// </summary>
 		protected virtual void NextWave()
 		{
-			waves[m_CurrentIndex].onWaveCompleted -= NextWave;
-			if (waves.Next(ref m_CurrentIndex))
+			waves[m_CurrentIndex.Value].onWaveCompleted -= NextWave;
+			if (waves.Next(m_CurrentIndex))
 			{
 				InitCurrentWave();
 			}
@@ -116,7 +124,7 @@ namespace TowerDefense.Level
 		/// </summary>
 		protected virtual void InitCurrentWave()
 		{
-			Wave wave = waves[m_CurrentIndex];
+			Wave wave = waves[m_CurrentIndex.Value];
 			wave.onWaveCompleted += NextWave;
 			wave.Init();
 			if (waveChanged != null)

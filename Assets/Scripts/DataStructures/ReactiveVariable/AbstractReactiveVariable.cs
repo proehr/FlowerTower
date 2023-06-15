@@ -37,5 +37,10 @@ namespace DataStructures.ReactiveVariable
             
             runtimeProperty.Value = value;
         }
+
+        public void SetProperty(ReactiveProperty<T> property)
+        {
+            runtimeProperty = property;
+        }
     }
 }
