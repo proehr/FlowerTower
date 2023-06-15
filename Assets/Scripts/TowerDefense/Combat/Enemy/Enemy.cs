@@ -26,11 +26,12 @@ namespace TowerDefense.Combat.Enemy
 
 
         // Update is called once per frame
-        public override void Update()
+        public void Update()
         {
             if (actionCooldown > 0f)
             {
                 actionCooldown -= Time.deltaTime;
+                animator.SetFloat(animatorMovementSpeedId, 0);
             }
             else
             {

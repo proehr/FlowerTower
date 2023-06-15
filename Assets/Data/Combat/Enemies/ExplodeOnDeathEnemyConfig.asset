@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c312608a144ce89fc6f92ab4ed4f2c, type: 3}
   m_Name: ExplodeOnDeathEnemyConfig
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: -4389014972316466385, guid: 0fa637a090af4b94191e893056901290, type: 3}
+  enemyPrefab: {fileID: 1012604799147181606, guid: 0bfe91df9546c554089e66c9c1e2c0f7, type: 3}
