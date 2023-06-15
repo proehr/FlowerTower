@@ -1077,8 +1077,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3956373381906323087}
-  m_LocalRotation: {x: -0.000000010909935, y: -0.0000000019581927, z: -0.5543178,
-    w: 0.83230513}
+  m_LocalRotation: {x: -0.000000010909935, y: -0.0000000019581927, z: -0.5543178, w: 0.83230513}
   m_LocalPosition: {x: -4.8894434e-11, y: 0.0006522372, z: 1.6298145e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2108,6 +2107,7 @@ MonoBehaviour:
   movementData:
     movementSpeed: 1
   currentNode: {fileID: 0}
+  killCounter: {fileID: 11400000, guid: ef87c7c061f1fed4e962e248f08f1a1b, type: 2}
   enemyData:
     maxHealth: 100
     attackDamage: 4
@@ -2393,12 +2393,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3434291208500306134}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 501102151f7718e43bfe877cba293019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   movementData:
     movementSpeed: 1
   currentNode: {fileID: 0}
