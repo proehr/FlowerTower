@@ -447,6 +447,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9074154463053029285, guid: a2d9a29d41175aa47883c0ced411becb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fd754449ddf8d784d89c50a054ad906d, type: 2}
     - target: {fileID: -8679921383154817045, guid: a2d9a29d41175aa47883c0ced411becb, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -477,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2d9a29d41175aa47883c0ced411becb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2d9a29d41175aa47883c0ced411becb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -485,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2d9a29d41175aa47883c0ced411becb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2d9a29d41175aa47883c0ced411becb, type: 3}
       propertyPath: m_LocalRotation.z
@@ -497,7 +501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2d9a29d41175aa47883c0ced411becb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2d9a29d41175aa47883c0ced411becb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2721,6 +2725,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 217321198332067347, guid: ff99ced92ea667d4983fd674f6a9075a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 77335a4b356778242aad575ab6dd77c6, type: 2}
     - target: {fileID: 919132149155446097, guid: ff99ced92ea667d4983fd674f6a9075a, type: 3}
       propertyPath: m_Name
       value: Tower01

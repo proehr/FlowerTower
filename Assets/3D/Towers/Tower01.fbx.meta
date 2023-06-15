@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: ff99ced92ea667d4983fd674f6a9075a
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 8739767432969155769
+    second: Tower|Walking_tower
   externalObjects: {}
   materials:
     materialImportMode: 2
