@@ -6,22 +6,26 @@ namespace TowerDefense.Combat.Enemy
 {
     public abstract class MovingCombatant : Combatant
     {
+        [SerializeField] private protected Animator animator;
         [SerializeField] internal MovementData movementData;
         
         [SerializeField] protected Node currentNode;
+        
+        private protected readonly int animatorMovementSpeedId = Animator.StringToHash("MovementSpeed");
         private Vector3 target;
-
-        public virtual void Update()
-        {
-            HandleMovement();
-        }
 
         internal void HandleMovement()
         {
-            if (Mathf.Abs((transform.position - target).magnitude) > Mathf.Epsilon)
+            // TODO: extract the distance as variable (or remove this if working with navmesh)
+            if (Mathf.Abs((transform.position - target).magnitude) > 0.25f)
             {
                 transform.Translate(
                     Time.deltaTime * movementData.movementSpeed * (target - transform.position).normalized);
+                animator.SetFloat(animatorMovementSpeedId, movementData.movementSpeed);
+            }
+            else
+            {
+                animator.SetFloat(animatorMovementSpeedId, 0);
             }
         }
         
