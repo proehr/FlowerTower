@@ -11,6 +11,19 @@ namespace TowerDefense
         [SerializeField] private float speedThreeMultiplier = 5;
 
         private float previousGameSpeed;
+        [SerializeField]
+        private bool startGamePaused;
+
+        public void OnEnable()
+        {
+            if (startGamePaused)
+            {
+                OnTriggerPause();
+            } else
+            {
+                OnSpeedOne();
+            }
+        }
 
         public void OnTriggerPause()
         {
