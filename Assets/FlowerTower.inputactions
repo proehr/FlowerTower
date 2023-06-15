@@ -169,6 +169,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2c4cc533-3c90-4bfa-8fdf-0861c52dde1b",
+                    "path": "<Keyboard>/numpad1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpeedOne",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "93a8a595-e23c-436a-9a5d-5a641db7a2f4",
                     "path": "<Keyboard>/2",
                     "interactions": "",
@@ -180,11 +191,33 @@
                 },
                 {
                     "name": "",
+                    "id": "14568af7-9a98-423e-b346-975cc6fc2afa",
+                    "path": "<Keyboard>/numpad2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpeedTwo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "0d1a06d9-1b30-4350-bf11-88f6b8cd079a",
                     "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "SpeedThree",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d0d3c5d-aea1-490a-8e3d-c630ed1717af",
+                    "path": "<Keyboard>/numpad3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "SpeedThree",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -207,6 +240,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "TriggerPause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa569072-d286-4ef4-a9f4-86328664bdb3",
+                    "path": "<Keyboard>/numpad0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "TriggerPause",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -122,8 +122,10 @@ namespace TowerDefense.Combat.Tower
             killCount++;
             if (killCount == currentCombatData.killCountForUpgrade)
             {
+                float oldmaxHealth = currentCombatData.maxHealth;
                 currentLevel++;
                 currentCombatData = new TowerCombatData(typeData.towerLevels[currentLevel]);
+                currentHealth += (currentCombatData.maxHealth - oldmaxHealth);
                 // TODO visual update for tower upgrade
                 WorldUIHandler.instance.setLevel(this, currentLevel);
             }

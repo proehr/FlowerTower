@@ -110,6 +110,7 @@ namespace TowerDefense.Level
 			waves[m_CurrentIndex.Value].onWaveCompleted -= NextWave;
 			if (waves.Next(m_CurrentIndex))
 			{
+				//m_CurrentIndex.Value = m_CurrentIndex.Value + 1;
 				InitCurrentWave();
 			}
 			else
@@ -125,7 +126,7 @@ namespace TowerDefense.Level
 		protected virtual void InitCurrentWave()
 		{
 			Wave wave = waves[m_CurrentIndex.Value];
-			wave.onWaveCompleted += NextWave;
+			wave.allWaveEnemiesDead += NextWave;
 			wave.Init();
 			if (waveChanged != null)
 			{

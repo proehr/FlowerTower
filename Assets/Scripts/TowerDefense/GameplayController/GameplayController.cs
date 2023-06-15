@@ -9,6 +9,7 @@ namespace TowerDefense.GameplayController
         [SerializeField] private GameplayData_SO gameplayData;
         [SerializeField] private GameObject levelSlot;
         [SerializeField] private GameObject levelResultUiCanvas;
+        [SerializeField] private TimeManipulation timeManipulation;
 
         private void Awake()
         {
@@ -29,6 +30,7 @@ namespace TowerDefense.GameplayController
             gameplayData.ResultType = ResultType.WIN;
             gameplayData.CurrentLevelIndex++;
             TransitionTo(new RoundResultScreenState(levelResultUiCanvas));
+            timeManipulation.OnTriggerPause();
         }
 
 
@@ -36,6 +38,7 @@ namespace TowerDefense.GameplayController
         {
             gameplayData.ResultType = ResultType.LOSE;
             TransitionTo(new RoundResultScreenState(levelResultUiCanvas));
+            timeManipulation.OnTriggerPause();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TowerDefense.Level;
+using UnityEngine;
 
 namespace TowerDefense
 {
@@ -9,6 +10,7 @@ namespace TowerDefense
         [SerializeField] private float speedOneMultiplier = 1;
         [SerializeField] private float speedTwoMultiplier = 2;
         [SerializeField] private float speedThreeMultiplier = 5;
+        [SerializeField] WaveManager waveManager;
 
         private float previousGameSpeed;
         [SerializeField]

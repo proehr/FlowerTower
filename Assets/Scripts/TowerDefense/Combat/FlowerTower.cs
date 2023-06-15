@@ -11,7 +11,7 @@ namespace TowerDefense.Combat
         [SerializeField] private GameEvent onFlowerTowerDeath;
         [SerializeField] private int maxHealth;
 
-        private void Awake()
+        private void OnEnable()
         {
             this.currentHealth = maxHealth;
             WorldUIHandler.instance.RegisterFlower(this);

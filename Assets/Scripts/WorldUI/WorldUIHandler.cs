@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TowerDefense.Combat;
-
+[DefaultExecutionOrder(-1)]
 public class WorldUIHandler : MonoBehaviour
 {
     [SerializeField]
@@ -25,7 +25,7 @@ public class WorldUIHandler : MonoBehaviour
     public static WorldUIHandler instance;
     [SerializeField]
     private Camera referenceCamera;
-    private void OnEnable()
+    private void Awake()
     {
         towerUIs = new Dictionary<Combatant, GameObject>();
         enemyUIs = new Dictionary<Combatant, GameObject>();

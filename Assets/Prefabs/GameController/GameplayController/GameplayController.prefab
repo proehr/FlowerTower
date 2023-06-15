@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStateSO: {fileID: 11400000, guid: 3426a58962badc34692b615859ba7142, type: 2}
-  gameplayData: {fileID: 11400000, guid: 7027d4043bf32ee45be676ca014cfd8f, type: 2}
+  gameplayData: {fileID: 11400000, guid: a9981df541a0bdc489c2410ff4d22cbf, type: 2}
   levelSlot: {fileID: 855230998361315606}
   levelResultUiCanvas: {fileID: 4241427016878809353}
 --- !u!114 &5940260378576338320
@@ -148,6 +148,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 69bf3e2d-e03f-4f9f-9ee6-f379007cbfb6
     m_ActionName: GameControls/CameraDrag[/Mouse/rightButton,/Mouse/delta/x,/Mouse/delta/y]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e24837e8-e073-4ad4-a81a-1f17b83d458d
+    m_ActionName: GameControls/SpeedOne[/Keyboard/1,/Keyboard/numpad1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7feecbe7-1195-495a-a8e2-6eb0846f1894
+    m_ActionName: GameControls/SpeedTwo[/Keyboard/2,/Keyboard/numpad2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 750f4134-897b-45fb-bbd9-7b0916578d40
+    m_ActionName: GameControls/SpeedThree[/Keyboard/3,/Keyboard/numpad3]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 97d2ef76-a4e3-4686-8e57-9e5c6793be67
+    m_ActionName: GameControls/TriggerPause[/Keyboard/backquote,/Keyboard/p,/Keyboard/numpad0]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: GameControls
