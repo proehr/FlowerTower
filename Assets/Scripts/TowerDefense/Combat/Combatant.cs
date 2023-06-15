@@ -42,5 +42,6 @@ namespace TowerDefense.Combat
         }
 
         public abstract void Attack(Combatant target);
+        public abstract float getHealthPercentage();
     }
 }

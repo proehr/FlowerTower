@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: {fileID: 5422386628264037313}
   typeData:
-    name: 
+    name: Joe
     towerLevels:
     - attackDamage: 5
       attackSpeed: 2
