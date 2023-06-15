@@ -15,6 +15,8 @@ MonoBehaviour:
   currentLevelIndex: 0
   levelPrefabs:
   - {fileID: 6130489674224891052, guid: c280cc10b2433c949bc65f53c31d9bfe, type: 3}
+  - {fileID: 7437037279218379162, guid: 4917175a0eabf7747928683953620afb, type: 3}
   resultType: 1
   onNextRound: {fileID: 11400000, guid: 781724212727f9540a88e2d7380194ca, type: 2}
-  onFinishMap: {fileID: 11400000, guid: 8fb5d3f3d78c96e4ca79245d7db321fc, type: 2}
+  onFlowerTowerDeath: {fileID: 11400000, guid: 8fb5d3f3d78c96e4ca79245d7db321fc, type: 2}
+  onFinalEnemyKilled: {fileID: 11400000, guid: 245c805c27c2a1444980a7d3918f36f7, type: 2}
