@@ -13,17 +13,19 @@ namespace HexGrid
 
         void Update()
         {
-            Vector3 snapPosition;
-            var position = transform.position;
+            transform.position = ToHexPosition(transform.position);
+        }
 
+        public static Vector3 ToHexPosition(Vector3 position)
+        {
+            Vector3 snapPosition;
             int columnNumber = Mathf.RoundToInt(position.x / X_STEP);
             float zOffset = columnNumber % 2 * INNER_HEIGHT;
 
             snapPosition.x = columnNumber * X_STEP;
             snapPosition.z = Mathf.RoundToInt((position.z - zOffset) / Z_STEP) * Z_STEP + zOffset;
 
-            position = new Vector3(snapPosition.x, 0f, snapPosition.z);
-            transform.position = position;
+            return new Vector3(snapPosition.x, 0f, snapPosition.z);
         }
     }
 }
