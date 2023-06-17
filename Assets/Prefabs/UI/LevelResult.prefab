@@ -688,6 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplayData: {fileID: 11400000, guid: 7027d4043bf32ee45be676ca014cfd8f, type: 2}
   resultText: {fileID: 3858045301067117597}
+  startLevelButtonText: {fileID: 530465652560076746}
 --- !u!1 &8376256352370243152
 GameObject:
   m_ObjectHideFlags: 0

@@ -94,7 +94,7 @@ namespace TowerDefense.Combat.Tower
         public virtual void OnTriggerEnter(Collider other)
         {
             Enemy.Enemy enemy = other.GetComponent<Enemy.Enemy>();
-            if (enemy && !enemies.Contains(enemy))
+            if (enemy && !enemies.Contains(enemy) && !enemy.HasTarget())
             {
                 enemy.BeginCombat(this);
                 enemies.Add(enemy);

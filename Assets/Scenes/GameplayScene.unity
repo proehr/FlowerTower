@@ -821,46 +821,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7239795928855785854, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239795928855785854, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239795928855785854, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239795928855785854, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239795928855785854, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 640
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239795928855785854, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239795928855785854, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239795928855785854, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239795928855785854, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239795928855785854, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7239795930432027396, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
       propertyPath: startGamePaused
       value: 1
@@ -1344,10 +1304,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5940260378576338322, guid: abe17f50afc47054fa339b7467bcaff0, type: 3}
-      propertyPath: gameplayData
-      value: 
-      objectReference: {fileID: 11400000, guid: a9981df541a0bdc489c2410ff4d22cbf, type: 2}
-    - target: {fileID: 5940260378576338322, guid: abe17f50afc47054fa339b7467bcaff0, type: 3}
       propertyPath: timeManipulation
       value: 
       objectReference: {fileID: 2101347969}
@@ -1355,8 +1311,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayController
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5940260378576338320, guid: abe17f50afc47054fa339b7467bcaff0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe17f50afc47054fa339b7467bcaff0, type: 3}
 --- !u!1001 &1572636588
 PrefabInstance:

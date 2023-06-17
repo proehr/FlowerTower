@@ -2,6 +2,7 @@ using System;
 using DataStructures.ReactiveVariable;
 using TowerDefense.Combat.AttackEffects;
 using TowerDefense.Combat.Tower;
+using TowerDefense.Nodes;
 using UnityEngine;
 
 namespace TowerDefense.Combat.Enemy
@@ -88,6 +89,20 @@ namespace TowerDefense.Combat.Enemy
         public override float getHealthPercentage()
         {
             return currentHealth / enemyData.maxHealth;
+        }
+
+        internal bool HasTarget()
+        {
+            return targetCombatant != null;
+        }
+
+        public override void SetNode(Node node)
+        {
+            currentNode = node;
+            if (targetCombatant == null)
+            {
+                SetTarget(currentNode.transform.position);
+            }
         }
     }
 }
