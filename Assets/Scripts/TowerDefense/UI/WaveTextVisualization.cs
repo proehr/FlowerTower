@@ -18,11 +18,11 @@ public class WaveTextVisualization : MonoBehaviour
     
     private void Start()
     {
-        _currentStageDisposable = currentStage.GetProperty
-            .ObserveEveryValueChanged(x => x)
+        _currentStageDisposable = currentStage
+            .ObserveEveryValueChanged(x => x.GetValue())
             .Subscribe(x => UpdateKillRequirementText());
-        _runtimeSetDisposable = totalStages.GetProperty
-            .ObserveEveryValueChanged(x => x)
+        _runtimeSetDisposable = totalStages
+            .ObserveEveryValueChanged(x => x.GetValue())
             .Subscribe(x => UpdateKillRequirementText());
     }
 
