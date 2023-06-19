@@ -16,7 +16,16 @@ namespace TowerDefense.UI
             {
                 case ResultType.WIN:
                     resultText.SetText("You Win!");
-                    startLevelButtonText.SetText("Next Level");
+                    
+                    if (gameplayData.CurrentLevelIndex >= gameplayData.LevelPrefabs.Count)
+                    {
+                        startLevelButtonText.SetText("Restart all levels");
+                        gameplayData.CurrentLevelIndex = 0;
+                    }
+                    else
+                    {
+                        startLevelButtonText.SetText("Next level");
+                    }
                     break;
                 case ResultType.LOSE:
                     resultText.SetText("You Lose!");

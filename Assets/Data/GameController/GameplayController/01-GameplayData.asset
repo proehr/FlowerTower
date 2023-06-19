@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed3b4d26e5b4e5a9273e254ab4696c1, type: 3}
   m_Name: 01-GameplayData
   m_EditorClassIdentifier: 
+  killCount: {fileID: 11400000, guid: ef87c7c061f1fed4e962e248f08f1a1b, type: 2}
   currentLevelIndex: 1
   levelPrefabs:
   - {fileID: -4712524546054545897, guid: ef2cca4e111af2843a0c12f5e5171fcd, type: 3}
   - {fileID: 3581725756683755417, guid: 9307b0143a321054f9d6e661fc932289, type: 3}
-  resultType: 0
+  resultType: 1
   onNextRound: {fileID: 11400000, guid: 781724212727f9540a88e2d7380194ca, type: 2}
   onFlowerTowerDeath: {fileID: 11400000, guid: 8fb5d3f3d78c96e4ca79245d7db321fc, type: 2}
   onFinalEnemyKilled: {fileID: 11400000, guid: 245c805c27c2a1444980a7d3918f36f7, type: 2}

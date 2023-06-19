@@ -127,7 +127,7 @@ namespace TowerDefense.Combat.Tower
                 currentCombatData = new TowerCombatData(typeData.towerLevels[currentLevel]);
                 currentHealth += (currentCombatData.maxHealth - oldmaxHealth);
                 // TODO visual update for tower upgrade
-                WorldUIHandler.instance.setLevel(this, currentLevel);
+                WorldUIHandler.instance.SetLevel(this, currentLevel);
             }
         }
 

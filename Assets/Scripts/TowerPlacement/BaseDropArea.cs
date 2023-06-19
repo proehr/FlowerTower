@@ -30,7 +30,7 @@ namespace TowerPlacement
 
             if (InternalIsDropArea())
             {
-                _droppedItem = droppable.ProvideInstantiatedPrefab();
+                _droppedItem = droppable.ProvideInstantiatedPrefab(transform);
             }
         }
 

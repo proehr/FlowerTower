@@ -8,6 +8,6 @@ namespace TowerPlacement
     {
         void OnDrop(bool isSuccessfulDrop);
 
-        GameObject ProvideInstantiatedPrefab();
+        GameObject ProvideInstantiatedPrefab(Transform parentTransform);
     }
 }

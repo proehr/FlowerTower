@@ -75,6 +75,7 @@ namespace TowerDefense.Level
 		/// </summary>
 		public virtual void StartWaves()
 		{
+			waves[^1].allWaveEnemiesDead += onFinalEnemyDeath.Raise;
 			if (waves.Count > 0)
 			{
 				InitCurrentWave();
@@ -91,6 +92,7 @@ namespace TowerDefense.Level
 		/// </summary>
 		protected virtual void Awake()
 		{
+			currentStage.Set(0);
 			waves.ObserveEveryValueChanged(x => x.Count).Subscribe(x => totalStages.Set(waves.Count));
 			
 			if (startWavesOnAwake)
@@ -113,7 +115,6 @@ namespace TowerDefense.Level
 			else
 			{
 				SafelyCallSpawningCompleted();
-				waves[^1].allWaveEnemiesDead += onFinalEnemyDeath.Raise;
 			}
 		}
 

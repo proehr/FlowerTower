@@ -565,7 +565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3729234649010589857, guid: 836b61470f686c44e9e0f30047c6d011, type: 3}
       propertyPath: m_Name
-      value: 02-TwoPronged
+      value: 02-TwoPronged Variant-NotHextTiled
       objectReference: {fileID: 0}
     - target: {fileID: 3771024641690273372, guid: 836b61470f686c44e9e0f30047c6d011, type: 3}
       propertyPath: m_Enabled

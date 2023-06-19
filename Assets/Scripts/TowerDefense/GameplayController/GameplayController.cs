@@ -1,5 +1,7 @@
 ﻿using TowerDefense.LevelSelection;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace TowerDefense.GameplayController
 {
@@ -10,6 +12,7 @@ namespace TowerDefense.GameplayController
         [SerializeField] private GameObject levelSlot;
         [SerializeField] private GameObject levelResultUiCanvas;
         [SerializeField] private TimeManipulation timeManipulation;
+        [SerializeField] private Transform cardViewParent;
 
         private void Awake()
         {
@@ -17,12 +20,12 @@ namespace TowerDefense.GameplayController
             gameplayData.OnFlowerTowerDeath.RegisterListener(ShowLossResultScreen);
             gameplayData.OnFinalEnemyKilled.RegisterListener(ShowWinResultScreen);
 
-            InitializeStateMachine(new TDGameplayState(gameplayData, levelSlot));
+            InitializeStateMachine(new TDGameplayState(gameplayData, levelSlot, cardViewParent));
         }
 
         private void StartTDGameplay()
         {
-            TransitionTo(new TDGameplayState(gameplayData, levelSlot));
+            TransitionTo(new TDGameplayState(gameplayData, levelSlot, cardViewParent));
         }
 
         private void ShowWinResultScreen()

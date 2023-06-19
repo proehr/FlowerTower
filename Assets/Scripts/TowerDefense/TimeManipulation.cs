@@ -10,18 +10,17 @@ namespace TowerDefense
         [SerializeField] private float speedOneMultiplier = 1;
         [SerializeField] private float speedTwoMultiplier = 2;
         [SerializeField] private float speedThreeMultiplier = 5;
-        [SerializeField] WaveManager waveManager;
 
         private float previousGameSpeed;
-        [SerializeField]
-        private bool startGamePaused;
+        [SerializeField] private bool startGamePaused;
 
         public void OnEnable()
         {
             if (startGamePaused)
             {
                 OnTriggerPause();
-            } else
+            }
+            else
             {
                 OnSpeedOne();
             }
@@ -39,7 +38,7 @@ namespace TowerDefense
                 SetGameSpeed(0);
             }
         }
-        
+
         public void OnSpeedOne()
         {
             SetGameSpeed(speedOneMultiplier);
