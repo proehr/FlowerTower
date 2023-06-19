@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DataStructures.Events;
+using DataStructures.ReactiveVariable;
 using TowerDefense.GameplayController;
 using TowerDefense.LevelSelection;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace TowerDefense
     [CreateAssetMenu(fileName = "gameplayData", menuName = "Data/FlowerTower/GameplayData", order = 0)]
     public class GameplayData_SO : ScriptableObject
     {
+        [SerializeField] private IntReactiveVariable killCount;
         [SerializeField] private int currentLevelIndex = 0;
         [SerializeField] private List<LevelSelection.Level> levelPrefabs;
         [SerializeField] private ResultType resultType;
@@ -17,6 +19,8 @@ namespace TowerDefense
         [SerializeField] private GameEvent onNextRound;
         [SerializeField] private GameEvent onFlowerTowerDeath;
         [SerializeField] private GameEvent onFinalEnemyKilled;
+
+        public IntReactiveVariable KillCount => killCount;
 
         public int CurrentLevelIndex
         {

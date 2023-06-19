@@ -51,7 +51,7 @@ namespace TowerPlacement
                 killsRemaining = 4 + placedTowerCount * (placedTowerCount + 1);
             }
 
-            text.text = killsRemaining <= 0 ? "You can place a unit" : $"{killsRemaining - bufferKillCount} kills remaining";
+            text.text = killsRemaining - bufferKillCount <= 0 ? "You can place a unit" : $"{killsRemaining - bufferKillCount} kills remaining";
         }
     }
 }

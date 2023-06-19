@@ -14,11 +14,6 @@ namespace TowerDefense.Level
 	public class WaveManager : MonoBehaviour
 	{
 		/// <summary>
-		/// Current wave being used
-		/// </summary>
-		protected ReactiveProperty<int> m_CurrentIndex;
-
-		/// <summary>
 		/// Whether the WaveManager starts waves on Awake - defaulted to null since the LevelManager should call this function
 		/// </summary>
 		public bool startWavesOnAwake;
@@ -30,6 +25,10 @@ namespace TowerDefense.Level
 		public List<Wave> waves = new List<Wave>();
 
 		[SerializeField] private GameEvent onFinalEnemyDeath;
+		
+		/// <summary>
+		/// Current wave being used
+		/// </summary>
 		[SerializeField] private IntReactiveVariable currentStage;
 		[SerializeField] private IntReactiveVariable totalStages;
 
@@ -38,7 +37,7 @@ namespace TowerDefense.Level
 		/// </summary>
 		public int waveNumber
 		{
-			get { return m_CurrentIndex.Value + 1; }
+			get { return currentStage.GetValue() + 1; }
 		}
 
 		/// <summary>
@@ -53,11 +52,11 @@ namespace TowerDefense.Level
 		{
 			get
 			{
-				if (waves == null || waves.Count <= m_CurrentIndex.Value)
+				if (waves == null || waves.Count <= currentStage.GetValue())
 				{
 					return 0;
 				}
-				return waves[m_CurrentIndex.Value].progress;
+				return waves[currentStage.GetValue()].progress;
 			}
 		}
 
@@ -76,6 +75,7 @@ namespace TowerDefense.Level
 		/// </summary>
 		public virtual void StartWaves()
 		{
+			waves[^1].allWaveEnemiesDead += onFinalEnemyDeath.Raise;
 			if (waves.Count > 0)
 			{
 				InitCurrentWave();
@@ -92,8 +92,7 @@ namespace TowerDefense.Level
 		/// </summary>
 		protected virtual void Awake()
 		{
-			m_CurrentIndex = new ReactiveProperty<int>();
-			currentStage.SetProperty(m_CurrentIndex);
+			currentStage.Set(0);
 			waves.ObserveEveryValueChanged(x => x.Count).Subscribe(x => totalStages.Set(waves.Count));
 			
 			if (startWavesOnAwake)
@@ -107,15 +106,15 @@ namespace TowerDefense.Level
 		/// </summary>
 		protected virtual void NextWave()
 		{
-			waves[m_CurrentIndex.Value].onWaveCompleted -= NextWave;
-			if (waves.Next(m_CurrentIndex))
+			waves[currentStage.GetValue()].onWaveCompleted -= NextWave;
+			if (waves.Next(currentStage.GetProperty))
 			{
+				//m_CurrentIndex.Value = m_CurrentIndex.Value + 1;
 				InitCurrentWave();
 			}
 			else
 			{
 				SafelyCallSpawningCompleted();
-				waves[^1].allWaveEnemiesDead += onFinalEnemyDeath.Raise;
 			}
 		}
 
@@ -124,8 +123,8 @@ namespace TowerDefense.Level
 		/// </summary>
 		protected virtual void InitCurrentWave()
 		{
-			Wave wave = waves[m_CurrentIndex.Value];
-			wave.onWaveCompleted += NextWave;
+			Wave wave = waves[currentStage.GetValue()];
+			wave.allWaveEnemiesDead += NextWave;
 			wave.Init();
 			if (waveChanged != null)
 			{

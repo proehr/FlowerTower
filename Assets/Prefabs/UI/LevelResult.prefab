@@ -599,10 +599,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 26.85
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -688,6 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplayData: {fileID: 11400000, guid: 7027d4043bf32ee45be676ca014cfd8f, type: 2}
   resultText: {fileID: 3858045301067117597}
+  startLevelButtonText: {fileID: 530465652560076746}
 --- !u!1 &8376256352370243152
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,10 +782,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 26.85
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

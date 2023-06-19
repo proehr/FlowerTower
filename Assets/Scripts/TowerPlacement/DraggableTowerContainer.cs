@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DataStructures.ReactiveVariable;
@@ -30,6 +31,12 @@ namespace TowerPlacement
         private Quaternion _baseRotation;
         private Vector3 _baseScale;
         private Vector3 _mousePosition;
+
+        private void Awake()
+        {
+            // TODO: this is HORRIBLE pls kill me
+            uiCamera = Camera.allCameras.First(camera => camera.name.Equals("Canvas Camera"));
+        }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
@@ -70,9 +77,9 @@ namespace TowerPlacement
             _isSuccessfulDrop = isSuccessfulDrop;
         }
         
-        public GameObject ProvideInstantiatedPrefab()
+        public GameObject ProvideInstantiatedPrefab(Transform parentTransform)
         {
-            return Instantiate(onDropInstantiationTower, transform.position, Quaternion.identity);
+            return Instantiate(onDropInstantiationTower, parentTransform);
         }
 
         public void OnEndDrag(PointerEventData eventData)

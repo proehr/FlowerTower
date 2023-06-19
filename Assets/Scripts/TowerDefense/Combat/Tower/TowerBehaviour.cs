@@ -94,7 +94,7 @@ namespace TowerDefense.Combat.Tower
         public virtual void OnTriggerEnter(Collider other)
         {
             Enemy.Enemy enemy = other.GetComponent<Enemy.Enemy>();
-            if (enemy && !enemies.Contains(enemy))
+            if (enemy && !enemies.Contains(enemy) && !enemy.HasTarget())
             {
                 enemy.BeginCombat(this);
                 enemies.Add(enemy);
@@ -122,10 +122,12 @@ namespace TowerDefense.Combat.Tower
             killCount++;
             if (killCount == currentCombatData.killCountForUpgrade)
             {
+                float oldmaxHealth = currentCombatData.maxHealth;
                 currentLevel++;
                 currentCombatData = new TowerCombatData(typeData.towerLevels[currentLevel]);
+                currentHealth += (currentCombatData.maxHealth - oldmaxHealth);
                 // TODO visual update for tower upgrade
-                WorldUIHandler.instance.setLevel(this, currentLevel);
+                WorldUIHandler.instance.SetLevel(this, currentLevel);
             }
         }
 

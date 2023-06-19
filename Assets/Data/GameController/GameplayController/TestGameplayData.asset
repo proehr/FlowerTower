@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed3b4d26e5b4e5a9273e254ab4696c1, type: 3}
   m_Name: TestGameplayData
   m_EditorClassIdentifier: 
+  killCount: {fileID: 11400000, guid: ef87c7c061f1fed4e962e248f08f1a1b, type: 2}
   currentLevelIndex: 0
   levelPrefabs:
   - {fileID: 6130489674224891052, guid: c280cc10b2433c949bc65f53c31d9bfe, type: 3}

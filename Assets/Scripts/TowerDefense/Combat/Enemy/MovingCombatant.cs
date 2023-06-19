@@ -17,10 +17,10 @@ namespace TowerDefense.Combat.Enemy
         internal void HandleMovement()
         {
             // TODO: extract the distance as variable (or remove this if working with navmesh)
+            RotateTowardsTarget();
             if (Mathf.Abs((transform.position - target).magnitude) > 0.25f)
             {
-                transform.Translate(
-                    Time.deltaTime * movementData.movementSpeed * (target - transform.position).normalized);
+                transform.position = Vector3.MoveTowards(transform.position, target, movementData.movementSpeed * Time.deltaTime);
                 animator.SetFloat(animatorMovementSpeedId, movementData.movementSpeed);
             }
             else
@@ -28,7 +28,18 @@ namespace TowerDefense.Combat.Enemy
                 animator.SetFloat(animatorMovementSpeedId, 0);
             }
         }
-        
+
+        private void RotateTowardsTarget()
+        {
+            Vector3 direction = (target - transform.position).normalized;
+            if (direction != Vector3.zero)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime);
+            }
+
+        }
+
         public void SetTarget(Vector3 newTarget)
         {
             target = newTarget;
