@@ -1,5 +1,7 @@
-﻿using TowerDefense.Level;
+﻿using System;
+using TowerDefense.Level;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TowerDefense
 {
@@ -13,6 +15,16 @@ namespace TowerDefense
 
         private float previousGameSpeed;
         [SerializeField] private bool startGamePaused;
+
+        private Action onEscapeButtonPressed;
+        private bool canTakeInput = true;
+        private bool isEscaped;
+
+        public Action OnEscapeButtonPressed
+        {
+            get => onEscapeButtonPressed;
+            set => onEscapeButtonPressed = value;
+        }
 
         public void OnEnable()
         {
@@ -28,36 +40,74 @@ namespace TowerDefense
 
         public void OnTriggerPause()
         {
-            if (Time.timeScale == 0)
+            if (canTakeInput)
             {
-                SetGameSpeed(previousGameSpeed);
+                if (Time.timeScale == 0)
+                {
+                    UnpauseGame();
+                }
+                else
+                {
+                    PauseGame();
+                }
             }
-            else
-            {
-                previousGameSpeed = Time.timeScale;
-                SetGameSpeed(0);
-            }
+        }
+
+        private void PauseGame()
+        {
+            previousGameSpeed = Time.timeScale;
+            SetGameSpeed(0);
+        }
+        
+        private void UnpauseGame()
+        {
+            SetGameSpeed(previousGameSpeed);
         }
 
         public void OnSpeedOne()
         {
-            SetGameSpeed(speedOneMultiplier);
+            if (canTakeInput)
+            {
+                SetGameSpeed(speedOneMultiplier);
+            }
         }
 
         public void OnSpeedTwo()
         {
-            SetGameSpeed(speedTwoMultiplier);
+            if (canTakeInput)
+            {
+                SetGameSpeed(speedTwoMultiplier);
+            }
         }
 
         public void OnSpeedThree()
         {
-            SetGameSpeed(speedThreeMultiplier);
+            if (canTakeInput)
+            {
+                SetGameSpeed(speedThreeMultiplier);
+            }
         }
 
         private void SetGameSpeed(float speed)
         {
             pauseBorder.SetActive(speed == 0);
             Time.timeScale = speed;
+        }
+
+        public void OnTriggerEscape()
+        {
+            if (isEscaped && Time.timeScale == 0)
+            {
+                UnpauseGame();
+            }
+            else if (!isEscaped && Time.timeScale != 0)
+            {
+                PauseGame();
+            }
+
+            canTakeInput = !canTakeInput;
+            isEscaped = !isEscaped;
+            onEscapeButtonPressed?.Invoke();
         }
     }
 }

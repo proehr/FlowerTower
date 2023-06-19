@@ -340,6 +340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 482cb83c11e54344a82d480073140af6, type: 3}
+--- !u!1 &776015865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7239795930432027394, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
+  m_PrefabInstance: {fileID: 1257976026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &779768453
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +391,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &779768457
 MonoBehaviour:
@@ -404,17 +409,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_PointAction: {fileID: 5204946724311451937, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_MoveAction: {fileID: 6796340430128349785, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_SubmitAction: {fileID: -3963304114083480969, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_CancelAction: {fileID: 777326686523502249, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_LeftClickAction: {fileID: -3282117507907956660, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_MiddleClickAction: {fileID: 3803858129457412877, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_RightClickAction: {fileID: 2543346595713159900, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_ScrollWheelAction: {fileID: 5482767945665935414, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 2248677107433113467, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 5924013308200674651, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
 --- !u!1001 &1120150032
@@ -538,7 +543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852562678275416984, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2852562678275416984, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
       propertyPath: m_AnchorMax.x
@@ -724,6 +729,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7239795930432027396, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239795930432027396, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
+      propertyPath: inputActionAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
     - target: {fileID: 7366204315456371214, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1158,6 +1171,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2211020107886621826, guid: abe17f50afc47054fa339b7467bcaff0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2101347969}
     - target: {fileID: 4467407293002037513, guid: abe17f50afc47054fa339b7467bcaff0, type: 3}
       propertyPath: gameplayData
       value: 
@@ -1421,12 +1438,42 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7239795930432027396, guid: 090e2367fd36b0346bf144c47aa15c35, type: 3}
   m_PrefabInstance: {fileID: 1257976026}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 776015865}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46252139ecf14b1a8bfd9191d8367f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2101347971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776015865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a0a7b180d9114084f86f0d652b57361b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: GameControls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!4 &1077610796032414009
 Transform:
   m_ObjectHideFlags: 0
